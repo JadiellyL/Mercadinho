@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package interfaceSwing;
 
+import interfaceSwing.Editar_produto;
 import model.Produto;
 import model.dao.ProdutoDao;
+import view.Mostrar_produto;
 
 /**
  *
@@ -33,7 +35,7 @@ public class Produto_view extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        Cadastro_Nome_cliente = new javax.swing.JTextField();
+        Cadastro_Nome_produto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         Cadastro_quantidade_produto = new javax.swing.JTextField();
@@ -124,7 +126,7 @@ public class Produto_view extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Cadastro_quantidade_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Cadastro_Nome_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(Cadastro_Nome_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(533, 533, 533)
                         .addComponent(jLabel2)))
@@ -142,7 +144,7 @@ public class Produto_view extends javax.swing.JFrame {
                 .addGap(76, 76, 76)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Cadastro_Nome_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Cadastro_Nome_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Cadastro_quantidade_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,16 +227,14 @@ public class Produto_view extends javax.swing.JFrame {
              
         ProdutoDao pd = new ProdutoDao();
         
-        p.setNome_produto(Cadastro_Nome_cliente.getText());
+        p.setNome_produto(Cadastro_Nome_produto.getText());
         p.setQuantidade_produto(Integer.parseInt(Cadastro_quantidade_produto.getText()));
         p.setPreco_produto(Double.parseDouble(cadastro_preco_produto.getText()));
         p.setFornecedor_produto(cadastro_fornecedor_produto.getText());
-          
-        
-        
+                        
         pd.create(p);
         
-        Cadastro_Nome_cliente.setText("");
+        Cadastro_Nome_produto.setText("");
         Cadastro_quantidade_produto.setText("");
         cadastro_preco_produto.setText("");
         cadastro_fornecedor_produto.setText("");
@@ -302,7 +302,7 @@ public class Produto_view extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Cadastro_Nome_cliente;
+    private javax.swing.JTextField Cadastro_Nome_produto;
     private javax.swing.JTextField Cadastro_quantidade_produto;
     private javax.swing.JTextField cadastro_fornecedor_produto;
     private javax.swing.JTextField cadastro_preco_produto;

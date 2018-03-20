@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.ConnectionFactory;
 import model.Produto;
-import view.Produto_view;
+import interfaceSwing.Produto_view;
 
 
 public class ProdutoDao {

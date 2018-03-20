@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package interfaceSwing;
 
 import model.Cliente;
 import model.dao.ClienteDao;
@@ -45,10 +45,10 @@ public class Cliente_view extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         cadastro_nome_cliente = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        cadastro_celular_cliente = new javax.swing.JTextField();
         jButton_cadastrar_cliente = new javax.swing.JButton();
         cadastrar_cpf_cliente = new javax.swing.JFormattedTextField();
         jLabel9 = new javax.swing.JLabel();
+        cadastro_celular_cliente = new javax.swing.JFormattedTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -107,6 +107,12 @@ public class Cliente_view extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Cpf:");
 
+        try {
+            cadastro_celular_cliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -132,14 +138,14 @@ public class Cliente_view extends javax.swing.JFrame {
                                         .addGap(10, 10, 10)))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cadastro_celular_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cadastro_cidade_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cadastro_bairro_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cadastro_numero_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Cadastro_sexo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cadastro_nome_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cadastrar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cadastro_rua_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(cadastro_rua_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cadastro_celular_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton_cadastrar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40)))
@@ -273,7 +279,7 @@ public class Cliente_view extends javax.swing.JFrame {
     private javax.swing.JTextField Cadastro_sexo_cliente;
     private javax.swing.JFormattedTextField cadastrar_cpf_cliente;
     private javax.swing.JTextField cadastro_bairro_cliente;
-    private javax.swing.JTextField cadastro_celular_cliente;
+    private javax.swing.JFormattedTextField cadastro_celular_cliente;
     private javax.swing.JTextField cadastro_cidade_cliente;
     private javax.swing.JTextField cadastro_nome_cliente;
     private javax.swing.JTextField cadastro_numero_cliente;
