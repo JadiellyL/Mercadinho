@@ -113,7 +113,7 @@ public class Venda_produtoDao{
             
     }
     
-public List<Venda_produto> join(){
+public List<Venda_produto> joinVendaProduto(){
         
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt = null;

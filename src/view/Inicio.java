@@ -10,8 +10,13 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.LayoutManager;
+import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -25,44 +30,42 @@ import javax.swing.JPanel;
 public class Inicio extends JFrame{
   
     JLabel saudacao;
+    JButton Vender, CadastrarCliente, CadastrarVendedor, CadastrarProduto,
+            ListarCliente, ListarProdutos, Sair;
+    JPanel painel, painel2;  
    
     public Inicio(){
       super("Tela Inicial");     
        
-
-        /*JPanel painel = new JPanel();
-        painel.setLayout(new FlowLayout());
-        add(BorderLayout.CENTER,painel);
+        painel = new JPanel();
+        painel2 = new JPanel();
+        add(BorderLayout.EAST,painel);
+        add(BorderLayout.WEST, painel2);
         
-        saudacao = new JLabel("Bem-Vindo(a)");
-        ImageIcon icon = new ImageIcon(getClass().getResource("img/bag.png"));
-        JLabel image = new JLabel(icon);
-       
-        painel.add(saudacao);
-        */
-        JLabel simples = new JLabel("Bem-Vindo(a)", JLabel.LEFT);
+        painel.setLayout(new GridLayout(10, 2));
+        painel.setSize(400,400);
+        //painel2.setSize(400,400);
+        
+        JLabel simples = new JLabel("Bem-Vindo(a)", JLabel.RIGHT);
         simples.setToolTipText("Meu tootip");
         Font font = new Font("serif", Font.BOLD | Font.ITALIC, 50);
         simples.setFont(font);
         simples.setForeground(Color.blue);
-        
-        /*
-        Font font = new Font("serif", Font.BOLD | Font.ITALIC, 28);
-        JLabel label = new JLabel();
-        label.setFont(font);
-        label.setForeground(Color.blue);
-        */
+              
         ImageIcon icon = 
         new ImageIcon(getClass().getResource("bag.png"));
-        JLabel imagem = new JLabel(icon);
-        
-        Container c = getContentPane();
-        c.setLayout(new FlowLayout());
-        c.add(simples);
+        JLabel imagem = new JLabel(icon, JLabel.RIGHT);
+            
+        //Container c = getContentPane();
+        //c.setLayout(new FlowLayout());
+        //c.add(simples);
         //c.add(label);
-        c.add(imagem);
+        //c.add(imagem);
         
+        painel2.add(simples);
+        painel2.add(imagem);
         
+        Menubotoes();
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
@@ -71,9 +74,107 @@ public class Inicio extends JFrame{
         setVisible(true);
         
     }
+    
+    public void Menubotoes(){
+        Vender = new JButton("Vender");
+        Vender.addActionListener(new botaoVender());
+        
+        CadastrarCliente = new JButton("Cadastrar Cliente");
+        CadastrarCliente.addActionListener(new botaoCadastrarCliente());
+        
+        CadastrarVendedor = new JButton("Cadastrar Vendedor");
+        CadastrarVendedor.addActionListener(new botaoCadastrarVendedor());
+        
+        CadastrarProduto = new JButton("Cadastrar Produto");
+        CadastrarProduto.addActionListener(new botaoCadastrarProduto());
+        
+        ListarCliente = new JButton("Listar Clientes");
+        ListarCliente.addActionListener(new botaoListarCliente());
+        
+        ListarProdutos = new JButton("Listar Produtos");
+        ListarProdutos.addActionListener(new botaoListarProduto());
+        
+        Sair = new JButton("Sair");
+        Sair.addActionListener(new botaoSair());
+        
+        painel.add(Vender);
+        painel.add(CadastrarCliente);
+        painel.add(CadastrarVendedor);
+        painel.add(CadastrarProduto);
+        painel.add(ListarCliente);
+        painel.add(ListarProdutos);
+        painel.add(Sair);
+    }
+    
+    
+     class botaoVender implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Vendas v = new Vendas();
+            v.setVisible(true);
+      
+        }
+    
+     }
+     
+     class botaoCadastrarCliente implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Client c = new Client();
+            c.setVisible(true);
+        }
+     }
+     
+     class botaoCadastrarVendedor implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Vendedorr v = new Vendedorr();
+            v.setVisible(true);
+        }
+     }
+     
+     class botaoCadastrarProduto implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Product p = new Product();
+            p.setVisible(true);
+        }
+     }
+     
+     class botaoListarCliente implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Mostrar_Cliente mc = new Mostrar_Cliente();
+            mc.setVisible(true);
+        }
+     }
+     
+     class botaoListarProduto implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Mostrar_produto mp = new Mostrar_produto();
+            mp.setVisible(true);
+        }
+     }
+     
+     class botaoSair implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+           
+          
+        }
+     }
     public static void main(String[] args) {
             
         new Inicio();
         
     }
+    
 }

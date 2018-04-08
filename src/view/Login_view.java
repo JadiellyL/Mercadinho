@@ -185,7 +185,7 @@ public class Login_view extends javax.swing.JFrame {
       l.setCod_vendedorFk(Integer.parseInt(codigo_vendedor_login.getText()));
       l.setSenha_vendedor(senha_vendedor_login.getText());
       
-      Pagina_inicial pi = new Pagina_inicial();
+      Inicio pi = new Inicio();
       
       for(int i = 0; i < vl.size(); i++){
           if((codigoDigitado == vl.get(i).getCod_vendedor()) && senhaDigitada.equals(vl.get(i).getSenha_vendedor())){

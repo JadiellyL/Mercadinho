@@ -135,8 +135,9 @@ public class Vendedorr extends JFrame{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            Editar.setVisible(true);
-            limparCampos();
+           Editar.setVisible(true);
+           limparCampos();
+            
         }
  }
  

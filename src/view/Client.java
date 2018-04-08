@@ -104,7 +104,9 @@ public class Client extends JFrame{
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        
+       
+     
+       
         Cadastrar = new JButton("Cadastrar");
         Cadastrar.addActionListener(new botaoCadastrar());
         
@@ -195,12 +197,14 @@ class selecionarSexo implements ItemListener{
         }
 }
 
+
+
 class botaoCadastrar implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
             ClienteDao cd = new ClienteDao();
-       
+            
             Cliente c = new Cliente();
 
 
@@ -251,7 +255,7 @@ class botaoEditar implements ActionListener{
             c.setCelular_cliente(cadastro_celular_cliente.getText());
 
             cli.update(c);
-
+            
             limparCampos();
                                   
         }
@@ -269,7 +273,6 @@ class botaoExcluir implements ActionListener{
 
 
             clid.delete(c);
-
             limparCampos();
 
         }
