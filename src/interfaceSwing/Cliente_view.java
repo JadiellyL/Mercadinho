@@ -6,6 +6,7 @@
 package interfaceSwing;
 
 import java.util.List;
+import javax.swing.JFrame;
 import model.Cliente;
 import model.dao.ClienteDao;
 
@@ -20,6 +21,8 @@ public class Cliente_view extends javax.swing.JFrame {
      */
     public Cliente_view() {
         initComponents();
+       
+        //setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         jButton_pesquisar_cpf_cliente.setVisible(false);
         jButton_salvar_alterações.setVisible(false);
         jButton_voltar_ao_cadastro.setVisible(false);
@@ -68,7 +71,7 @@ public class Cliente_view extends javax.swing.JFrame {
         jMenuItem3_listar_cliente = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(141, 170, 188));
         jPanel1.setMaximumSize(new java.awt.Dimension(400, 200));
@@ -283,6 +286,11 @@ public class Cliente_view extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2_excluir_cliente);
 
         jMenuItem3_listar_cliente.setText("Listar Clientes");
+        jMenuItem3_listar_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3_listar_clienteActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3_listar_cliente);
 
         jMenuBar1.add(jMenu1);
@@ -481,6 +489,11 @@ public class Cliente_view extends javax.swing.JFrame {
        
        limparCampos();
     }//GEN-LAST:event_jButton_excluir_clienteActionPerformed
+
+    private void jMenuItem3_listar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3_listar_clienteActionPerformed
+       Mostrar_Cliente mc = new Mostrar_Cliente();
+       mc.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3_listar_clienteActionPerformed
 
     public void limparCampos(){
         cadastrar_cpf_cliente.setText("");

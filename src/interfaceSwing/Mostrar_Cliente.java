@@ -9,8 +9,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.naming.spi.DirStateFactory;
+import javax.swing.DropMode;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
 import model.Cliente;
 import model.ConnectionFactory;
 import model.Produto;
@@ -26,6 +30,8 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
    
     public Mostrar_Cliente() {
         initComponents();
+        //jTable_clientes1.setVisible(false);
+        jTable_clientes.setAutoCreateRowSorter(rootPaneCheckingEnabled);
     }
 
  
@@ -33,6 +39,12 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1_editar_cliente = new javax.swing.JMenuItem();
+        jMenuItem2_excluir_cliente = new javax.swing.JMenuItem();
+        jMenuItem3_listar_cliente = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
         jPanel_mostrar = new javax.swing.JPanel();
         jButton_listar_clientes = new javax.swing.JButton();
         jButton_pesquisar_cliente = new javax.swing.JButton();
@@ -41,7 +53,35 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
         jTextField_cpf_cliente_listar = new javax.swing.JFormattedTextField();
         jButton_limpar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 25));
+
+        jMenu1.setText("Arquivo");
+
+        jMenuItem1_editar_cliente.setText("Editar Cadastro de Cliente");
+        jMenuItem1_editar_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1_editar_clienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1_editar_cliente);
+
+        jMenuItem2_excluir_cliente.setText("Excluir Cadastro de Cliente");
+        jMenuItem2_excluir_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2_excluir_clienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2_excluir_cliente);
+
+        jMenuItem3_listar_cliente.setText("Listar Clientes");
+        jMenu1.add(jMenuItem3_listar_cliente);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Sair");
+        jMenuBar1.add(jMenu2);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel_mostrar.setBackground(new java.awt.Color(141, 170, 188));
         jPanel_mostrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,6 +172,7 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable_clientes.setRequestFocusEnabled(false);
         jScrollPane1.setViewportView(jTable_clientes);
 
         try {
@@ -153,21 +194,19 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
         jPanel_mostrarLayout.setHorizontalGroup(
             jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_mostrarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextField_cpf_cliente_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton_pesquisar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_listar_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(113, 113, 113))
+            .addGroup(jPanel_mostrarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_mostrarLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 859, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel_mostrarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jTextField_cpf_cliente_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton_pesquisar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton_listar_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(113, 113, 113))))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 859, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel_mostrarLayout.setVerticalGroup(
             jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,16 +217,16 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
                     .addComponent(jButton_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_listar_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField_cpf_cliente_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel_mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -195,7 +234,7 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel_mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 25, Short.MAX_VALUE))
         );
 
         pack();
@@ -204,7 +243,7 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
     private void jButton_listar_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_listar_clientesActionPerformed
         
         //List<ProdutoDao> pd = (List<ProdutoDao>) new ProdutoDao();
-        
+        restaurarTabela();
         List<Cliente> clientes = new ClienteDao().read();
        for(int i = 0; i < clientes.size(); i++){
           // int j = 0;
@@ -228,57 +267,83 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
 
     private void jButton_pesquisar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_pesquisar_clienteActionPerformed
         List<Cliente> clientes = new ClienteDao().read();
+        Cliente c = new Cliente();
         
         String cpfDigitado = jTextField_cpf_cliente_listar.getText();
         boolean achou = false;
-     
-        for(Cliente c : clientes){
+    
+       for(int i = 0; i < clientes.size(); i++){
           
-            String cli = c.getCpf_cliente();
+            String cli = clientes.get(i).getCpf_cliente();
                         
             if(cpfDigitado.equals(cli)){
              achou = true;
-               
-            jTable_clientes.setValueAt(c.getCpf_cliente(), 0, 0);
-            jTable_clientes.setValueAt(c.getNome_cliente(),0, 1);
-            jTable_clientes.setValueAt(c.getSexo_cliente(),0, 2);
-            jTable_clientes.setValueAt(c.getRua_cliente(), 0, 3);
-            jTable_clientes.setValueAt(c.getNumeracao_casa_cliente(), 0, 4);
-            jTable_clientes.setValueAt(c.getBairro_cliente(), 0, 5);
-            jTable_clientes.setValueAt(c.getCidade_cliente(), 0, 6);
+            
+            jTable_clientes.setValueAt(clientes.get(i).getCpf_cliente(), 0, 0);
+            jTable_clientes.setValueAt(clientes.get(i).getNome_cliente(),0, 1);
+            jTable_clientes.setValueAt(clientes.get(i).getSexo_cliente(),0, 2);
+            jTable_clientes.setValueAt(clientes.get(i).getRua_cliente(), 0, 3);
+            jTable_clientes.setValueAt(clientes.get(i).getNumeracao_casa_cliente(), 0, 4);
+            jTable_clientes.setValueAt(clientes.get(i).getBairro_cliente(), 0, 5);
+            jTable_clientes.setValueAt(clientes.get(i).getCidade_cliente(), 0, 6);
             jTable_clientes.setValueAt(c.getCelular_cliente(),0, 7);
                
          
                                 
-            } else
-            if(!(cpfDigitado.equals(cli))){
-                achou = false;
-                JOptionPane.showMessageDialog(null, "Não encontrado!");
-               
-            }
-            
+            }           
              
         
         }
         
         
-     
+     JOptionPane.showMessageDialog(null, achou);
 
     }//GEN-LAST:event_jButton_pesquisar_clienteActionPerformed
 
+    public void restaurarTabela(){
+        jTable_clientes.setVisible(true);
+    }
     private void jButton_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_limparActionPerformed
-       
-        List<Cliente> clientes = new ClienteDao().read();
-       for(int i = 0; i < clientes.size(); i++){
-          // int j = 0;
-           int k = 0;
-            jTable_clientes.removeAll();
-            
-            //j++;
-            k++;
-            
-        }
+      
+        //jTable_clientes.setVisible(false);
+        jTable_clientes.selectAll();
+        jTable_clientes.setDropMode(DropMode.ON);
+		
+        
     }//GEN-LAST:event_jButton_limparActionPerformed
+
+    private void jMenuItem1_editar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1_editar_clienteActionPerformed
+        /*cadastro_nome_cliente.setVisible(false);
+        cadastro_rua_cliente.setVisible(false);
+        cadastro_numero_cliente.setVisible(false);
+        cadastro_bairro_cliente.setVisible(false);
+        cadastro_cidade_cliente.setVisible(false);
+        cadastro_celular_cliente.setVisible(false);
+        jButton_cadastrar_cliente.setVisible(false);
+        jButton_pesquisar_cpf_cliente.setVisible(true);
+        jButton_salvar_alterações.setVisible(true);
+        jButton_voltar_ao_cadastro.setVisible(true);*/
+        /*jLabel_nome_cliente.setVisible(false);
+        jLabel_rua_cliente.setVisible(false);
+        jLabel_numero_cliente.setVisible(false);
+        jLabel_bairro_cliente.setVisible(false);
+        jLabel_cidade_cliente.setVisible(false);
+        jLabel_celular_cliente.setVisible(false);
+        jLabel_sexo_cliente.setVisible(false);
+        sexo_feminino.setVisible(false);
+        sexo_masculino.setVisible(false);
+        jLabel_dados_pessoais.setVisible(false);
+        jLabel_endereco.setVisible(false);
+        jPanel2.setVisible(false);*/
+
+    }//GEN-LAST:event_jMenuItem1_editar_clienteActionPerformed
+
+    private void jMenuItem2_excluir_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2_excluir_clienteActionPerformed
+       /* jButton_cadastrar_cliente.setVisible(false);
+        jButton_pesquisar_cpf_cliente.setVisible(true);
+        jButton_voltar_ao_cadastro.setVisible(true);
+        jButton_excluir_cliente.setVisible(true);*/
+    }//GEN-LAST:event_jMenuItem2_excluir_clienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,6 +385,12 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
     private javax.swing.JButton jButton_limpar;
     private javax.swing.JButton jButton_listar_clientes;
     private javax.swing.JButton jButton_pesquisar_cliente;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1_editar_cliente;
+    private javax.swing.JMenuItem jMenuItem2_excluir_cliente;
+    private javax.swing.JMenuItem jMenuItem3_listar_cliente;
     private javax.swing.JPanel jPanel_mostrar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_clientes;
