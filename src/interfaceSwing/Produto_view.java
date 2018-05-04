@@ -8,7 +8,6 @@ package interfaceSwing;
 import interfaceSwing.Editar_produto;
 import model.Produto;
 import model.dao.ProdutoDao;
-import view.Mostrar_produto;
 
 /**
  *

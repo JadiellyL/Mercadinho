@@ -5,6 +5,8 @@
  */
 package view;
 
+import interfaceSwing.Mostrar_produto;
+import interfaceSwing.Mostrar_Cliente;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;

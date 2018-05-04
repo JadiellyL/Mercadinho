@@ -5,6 +5,7 @@
  */
 package interfaceSwing;
 
+import javax.swing.JOptionPane;
 import model.Vendedor;
 import model.dao.VendedorDao;
 
@@ -188,7 +189,11 @@ public class Vendedor_view extends javax.swing.JFrame {
       }
       if(seco_masculino_cadastro_vendedor.isSelected()){
           v.setSexo_vendedor("Masculino");
-      }
+      }/*
+      if((sexo_feminino_cadastro_vendedor.isSelected()) && 
+              (seco_masculino_cadastro_vendedor.isSelected())){
+          JOptionPane.showMessageDialog(null, "Selecione apenas um gênero!");
+      }*/
       v.setSenha_vendedor(jPasswordField1.getText());
       
       vd.create(v);

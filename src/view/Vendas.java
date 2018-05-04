@@ -11,9 +11,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Clock;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -24,6 +27,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.xml.bind.DatatypeConverter;
+import static jdk.nashorn.internal.objects.NativeRegExp.source;
 import model.ConnectionFactory;
 import model.Produto;
 import model.Venda;
@@ -45,15 +49,14 @@ public class Vendas extends javax.swing.JFrame {
         initComponents();
         Venda v = new Venda ();
         
-        /*
+       
         Date dat;
         dat = new Date();
         SimpleDateFormat formato;
-        formato = new SimpleDateFormat("yyyy-MM-dd");
+        formato = new SimpleDateFormat("YYYY-MM-dd");
         data_venda.setText(formato.format(dat));
         
-        
-        */
+      
        
     }
 
@@ -87,6 +90,7 @@ public class Vendas extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         valor_multiplicado_itens = new javax.swing.JTextField();
         modifica_preco = new javax.swing.JButton();
+        data_venda = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         valorTotalFinal_compra = new javax.swing.JTextField();
@@ -230,6 +234,10 @@ public class Vendas extends javax.swing.JFrame {
             }
         });
 
+        data_venda.setFont(new java.awt.Font("Cantarell", 1, 14)); // NOI18N
+        data_venda.setForeground(new java.awt.Color(255, 255, 255));
+        data_venda.setText("data");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -241,7 +249,9 @@ public class Vendas extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
                         .addComponent(jLabel5)
-                        .addGap(118, 118, 118))
+                        .addGap(18, 18, 18)
+                        .addComponent(data_venda)
+                        .addGap(55, 55, 55))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(cpf_cliente_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,7 +291,9 @@ public class Vendas extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(data_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -502,7 +514,7 @@ public class Vendas extends javax.swing.JFrame {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -550,17 +562,26 @@ public class Vendas extends javax.swing.JFrame {
         VendaDao vd = new VendaDao();
         List<Venda> lv = new VendaDao().read();
         int lista;
-        /*
-        Date dat;
-        dat = new Date();
-        SimpleDateFormat formato;
-        formato = new SimpleDateFormat("yyyy-MM-dd");
-        data_venda.setText(formato.format(dat));
-     */
-        v.setCpf_cliente(cpf_cliente_venda.getText());
-          
-        vd.create(v);
-        pegarUltimoCod();
+ /*
+        Calendar c = Calendar.getInstance();
+        c.set(1980, Calendar.FEBRUARY, 12);
+        Date date = c.getTime();
+        
+        DateFormat f = DateFormat.getDateInstance();
+        
+        SimpleDateFormat form = new SimpleDateFormat("YYYY-MM-dd");
+        f = DateFormat.getDateInstance(DateFormat.MEDIUM);
+        //System.out.println(form.format(date));
+        //v.setData_venda(f.parse(form.format(date)));
+       
+        */
+           
+            v.setCpf_cliente(cpf_cliente_venda.getText());
+
+            vd.create(v);
+            pegarUltimoCod();
+        
+        
     }//GEN-LAST:event_jButton_adicionarDetalhesVendaActionPerformed
     
     
@@ -685,12 +706,10 @@ public void adicionarProdutos(){
     Venda_produtoDao vpd = new Venda_produtoDao();
     List<Venda_produto> vpl = new Venda_produtoDao().read();
     Venda v = new Venda();
-    //ArrayList<Venda_produto> vpl = new ArrayList<>();
+    ArrayList<Venda_produto> list = new ArrayList<>();
     double valorFinal = 0;
     double varAuxiliar = 0;
-    
-    
-    //do{ 
+   
     vp.setCod_produtoFk(Integer.parseInt(codigo_produto_venda.getText()));
     vp.setCod_vendaFk(Integer.parseInt(aparecer_na_tela_codigo_venda.getText()));
     vp.setQuantidade_produtos(Integer.parseInt(quantidade_produto_venda.getText()));
@@ -706,24 +725,22 @@ public void adicionarProdutos(){
     
     vp.setTotal_venda(Double.parseDouble(valor_multiplicado_itens.getText())); 
     vpd.create(vp);
+    list.add(vp);
     vpl.add(vp);
-    //JOptionPane.showInputDialog("continuar?", op);
-    //}while(op == 1);
+    
+  
     int codV = Integer.parseInt(aparecer_na_tela_codigo_venda.getText());
-     
-    for(int i =0 ; i < vpl.size(); i++){
+    int codP = Integer.parseInt(codigo_produto_venda.getText());
+    
+    for(int i =0 ; i < list.size(); i++){
         int k = 0;
-        
-        if(vpl.get(i).getCod_vendaFk() == codV){
-            lista_de_compras.setValueAt(vpl.get(i).getCod_produtoFk(), i, k);
-            lista_de_compras.setValueAt(vpl.get(i).getQuantidade_produtos(), i, k+1);
-            lista_de_compras.setValueAt(vpl.get(i).getValor_unitarioproduto(), i, k+2);
-            lista_de_compras.setValueAt(vpl.get(i).getTotal_venda(), i, k+3);
-        
-        } 
-       
-        
-        
+         
+   
+            lista_de_compras.setValueAt(list.get(i).getCod_produtoFk(), i, k);
+            lista_de_compras.setValueAt(list.get(i).getQuantidade_produtos(), i, k+1);
+            lista_de_compras.setValueAt(list.get(i).getValor_unitarioproduto(), i, k+2);
+            lista_de_compras.setValueAt(list.get(i).getTotal_venda(), i, k+3);
+  
         double subtotal = vpl.get(i).getTotal_venda();
         valorFinal = (varAuxiliar + subtotal);
         varAuxiliar = valorFinal;
@@ -874,6 +891,7 @@ public void limparTabela(){
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField codigo_produto_venda;
     private javax.swing.JFormattedTextField cpf_cliente_venda;
+    private javax.swing.JLabel data_venda;
     private javax.swing.JButton jButtonFInalizar_compra;
     private javax.swing.JButton jButton_adicionarDetalhesVenda;
     private javax.swing.JDialog jDialog1;

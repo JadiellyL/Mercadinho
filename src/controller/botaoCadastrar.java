@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import model.Login;
 import model.Vendedor;
 import model.dao.VendedorDao;
-import view.Login_view;
+import interfaceSwing.Login_view;
 import view.Vendedorr;
 import view.Vendedorr;
 

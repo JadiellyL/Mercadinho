@@ -5,6 +5,7 @@
  */
 package interfaceSwing;
 
+import java.util.List;
 import model.Cliente;
 import model.dao.ClienteDao;
 
@@ -19,6 +20,10 @@ public class Cliente_view extends javax.swing.JFrame {
      */
     public Cliente_view() {
         initComponents();
+        jButton_pesquisar_cpf_cliente.setVisible(false);
+        jButton_salvar_alterações.setVisible(false);
+        jButton_voltar_ao_cadastro.setVisible(false);
+        jButton_excluir_cliente.setVisible(false);
     }
 
     /**
@@ -30,66 +35,196 @@ public class Cliente_view extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        Cadastro_sexo_cliente = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        cadastro_rua_cliente = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        cadastro_numero_cliente = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        cadastro_bairro_cliente = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        cadastro_cidade_cliente = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel_sexo_cliente = new javax.swing.JLabel();
+        jLabel_nome_cliente = new javax.swing.JLabel();
         cadastro_nome_cliente = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jButton_cadastrar_cliente = new javax.swing.JButton();
+        jLabel_celular_cliente = new javax.swing.JLabel();
         cadastrar_cpf_cliente = new javax.swing.JFormattedTextField();
-        jLabel9 = new javax.swing.JLabel();
+        jLabel_cpf_cliente = new javax.swing.JLabel();
         cadastro_celular_cliente = new javax.swing.JFormattedTextField();
+        sexo_feminino = new javax.swing.JRadioButton();
+        sexo_masculino = new javax.swing.JRadioButton();
+        jButton_pesquisar_cpf_cliente = new javax.swing.JButton();
+        jLabel_rua_cliente = new javax.swing.JLabel();
+        cadastro_rua_cliente = new javax.swing.JTextField();
+        jLabel_numero_cliente = new javax.swing.JLabel();
+        cadastro_numero_cliente = new javax.swing.JTextField();
+        jLabel_bairro_cliente = new javax.swing.JLabel();
+        cadastro_bairro_cliente = new javax.swing.JTextField();
+        jLabel_cidade_cliente = new javax.swing.JLabel();
+        cadastro_cidade_cliente = new javax.swing.JTextField();
+        jButton_cadastrar_cliente = new javax.swing.JButton();
+        jLabel_dados_pessoais = new javax.swing.JLabel();
+        jLabel_endereco = new javax.swing.JLabel();
+        jButton_salvar_alterações = new javax.swing.JButton();
+        jButton_voltar_ao_cadastro = new javax.swing.JButton();
+        jButton_excluir_cliente = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1_editar_cliente = new javax.swing.JMenuItem();
+        jMenuItem2_excluir_cliente = new javax.swing.JMenuItem();
+        jMenuItem3_listar_cliente = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(101, 116, 203));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1370, 700));
+        jPanel1.setBackground(new java.awt.Color(141, 170, 188));
+        jPanel1.setMaximumSize(new java.awt.Dimension(400, 200));
+        jPanel1.setMinimumSize(new java.awt.Dimension(400, 200));
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 200));
 
-        jLabel1.setFont(new java.awt.Font("Cantarell", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cadastrar Cliente");
+        jLabel_sexo_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_sexo_cliente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_sexo_cliente.setText("Sexo:");
 
-        jLabel2.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Sexo:");
+        jLabel_nome_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_nome_cliente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_nome_cliente.setText("Nome:");
 
-        jLabel3.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Rua:");
+        cadastro_nome_cliente.setBorder(null);
+        cadastro_nome_cliente.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jLabel4.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Numero:");
+        jLabel_celular_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_celular_cliente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_celular_cliente.setText("Celular:");
 
-        jLabel5.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Bairro:");
+        cadastrar_cpf_cliente.setBorder(null);
+        try {
+            cadastrar_cpf_cliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-        jLabel6.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Cidade:");
+        jLabel_cpf_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_cpf_cliente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_cpf_cliente.setText("Cpf:");
 
-        jLabel7.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Nome:");
+        cadastro_celular_cliente.setBorder(null);
+        try {
+            cadastro_celular_cliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
-        jLabel8.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Celular:");
+        sexo_feminino.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        sexo_feminino.setForeground(new java.awt.Color(255, 255, 255));
+        sexo_feminino.setText("Feminino");
 
+        sexo_masculino.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        sexo_masculino.setForeground(new java.awt.Color(255, 255, 255));
+        sexo_masculino.setText("Masculino");
+
+        jButton_pesquisar_cpf_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton_pesquisar_cpf_cliente.setText("Pesquisar");
+        jButton_pesquisar_cpf_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_pesquisar_cpf_clienteActionPerformed(evt);
+            }
+        });
+
+        jLabel_rua_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_rua_cliente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_rua_cliente.setText("Rua:");
+
+        cadastro_rua_cliente.setBorder(null);
+
+        jLabel_numero_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_numero_cliente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_numero_cliente.setText("Numero:");
+
+        cadastro_numero_cliente.setBorder(null);
+
+        jLabel_bairro_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_bairro_cliente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_bairro_cliente.setText("Bairro:");
+
+        cadastro_bairro_cliente.setBorder(null);
+
+        jLabel_cidade_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_cidade_cliente.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_cidade_cliente.setText("Cidade:");
+
+        cadastro_cidade_cliente.setBorder(null);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_nome_cliente)
+                    .addComponent(cadastro_nome_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_cpf_cliente)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(cadastrar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(jButton_pesquisar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_sexo_cliente)
+                    .addComponent(sexo_feminino)
+                    .addComponent(sexo_masculino)
+                    .addComponent(jLabel_celular_cliente)
+                    .addComponent(cadastro_celular_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_cidade_cliente)
+                    .addComponent(jLabel_rua_cliente)
+                    .addComponent(cadastro_rua_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_numero_cliente)
+                    .addComponent(cadastro_numero_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_bairro_cliente)
+                    .addComponent(cadastro_bairro_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastro_cidade_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(160, 160, 160))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_nome_cliente)
+                    .addComponent(jLabel_rua_cliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cadastro_nome_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastro_rua_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_numero_cliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cadastrar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_pesquisar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastro_numero_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel_sexo_cliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sexo_feminino)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sexo_masculino)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel_celular_cliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cadastro_celular_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel_bairro_cliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cadastro_bairro_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel_cidade_cliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cadastro_cidade_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(21, Short.MAX_VALUE))))
+        );
+
+        jButton_cadastrar_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jButton_cadastrar_cliente.setText("Cadastrar");
         jButton_cadastrar_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,109 +232,62 @@ public class Cliente_view extends javax.swing.JFrame {
             }
         });
 
-        try {
-            cadastrar_cpf_cliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        jLabel_dados_pessoais.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_dados_pessoais.setText("Dados Pessoais:");
 
-        jLabel9.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Cpf:");
+        jLabel_endereco.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_endereco.setText("Endereço:");
 
-        try {
-            cadastro_celular_cliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
+        jButton_salvar_alterações.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton_salvar_alterações.setText("Salvar");
+        jButton_salvar_alterações.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_salvar_alteraçõesActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(560, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3))
-                                        .addGap(10, 10, 10)))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cadastro_cidade_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cadastro_bairro_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cadastro_numero_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Cadastro_sexo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cadastro_nome_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cadastrar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cadastro_rua_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cadastro_celular_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton_cadastrar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)))
-                        .addGap(4, 4, 4)))
-                .addContainerGap(560, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cadastrar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(cadastro_nome_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(Cadastro_sexo_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(cadastro_rua_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(cadastro_numero_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(cadastro_bairro_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(cadastro_cidade_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(cadastro_celular_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addComponent(jButton_cadastrar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(159, Short.MAX_VALUE))
-        );
+        jButton_voltar_ao_cadastro.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton_voltar_ao_cadastro.setText("Voltar");
+        jButton_voltar_ao_cadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_voltar_ao_cadastroActionPerformed(evt);
+            }
+        });
+
+        jButton_excluir_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton_excluir_cliente.setText("Excluir");
+        jButton_excluir_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_excluir_clienteActionPerformed(evt);
+            }
+        });
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 25));
 
-        jMenu1.setText("File");
+        jMenu1.setText("Arquivo");
+
+        jMenuItem1_editar_cliente.setText("Editar Cadastro de Cliente");
+        jMenuItem1_editar_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1_editar_clienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1_editar_cliente);
+
+        jMenuItem2_excluir_cliente.setText("Excluir Cadastro de Cliente");
+        jMenuItem2_excluir_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2_excluir_clienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2_excluir_cliente);
+
+        jMenuItem3_listar_cliente.setText("Listar Clientes");
+        jMenu1.add(jMenuItem3_listar_cliente);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Sair");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -209,14 +297,42 @@ public class Cliente_view extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 24, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel_dados_pessoais)
+                .addGap(296, 359, Short.MAX_VALUE)
+                .addComponent(jLabel_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(265, 265, 265))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 856, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(344, 344, 344)
+                .addComponent(jButton_excluir_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton_cadastrar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton_salvar_alterações)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton_voltar_ao_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 801, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel_dados_pessoais))
+                .addGap(26, 26, 26)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_cadastrar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_salvar_alterações, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_excluir_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_voltar_ao_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
         );
 
         pack();
@@ -230,7 +346,12 @@ public class Cliente_view extends javax.swing.JFrame {
        
        c.setCpf_cliente(cadastrar_cpf_cliente.getText());
        c.setNome_cliente(cadastro_nome_cliente.getText());
-       c.setSexo_cliente(Cadastro_sexo_cliente.getText());
+       if(sexo_feminino.isSelected()){
+           c.setSexo_cliente(sexo_feminino.getText());
+       }
+       if(sexo_masculino.isSelected()){
+           c.setSexo_cliente(sexo_masculino.getText());
+       }
        c.setRua_cliente(cadastro_rua_cliente.getText());
        c.setNumeracao_casa_cliente(Integer.parseInt(cadastro_numero_cliente.getText()));
        c.setBairro_cliente(cadastro_bairro_cliente.getText());
@@ -238,8 +359,138 @@ public class Cliente_view extends javax.swing.JFrame {
        c.setCelular_cliente(cadastro_celular_cliente.getText());
        
        cd.create(c);
+       
+       limparCampos();
     }//GEN-LAST:event_jButton_cadastrar_clienteActionPerformed
 
+    
+    private void jMenuItem1_editar_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1_editar_clienteActionPerformed
+        /*cadastro_nome_cliente.setVisible(false);
+        cadastro_rua_cliente.setVisible(false);
+        cadastro_numero_cliente.setVisible(false);
+        cadastro_bairro_cliente.setVisible(false);
+        cadastro_cidade_cliente.setVisible(false);
+        cadastro_celular_cliente.setVisible(false);*/
+        jButton_cadastrar_cliente.setVisible(false);
+        jButton_pesquisar_cpf_cliente.setVisible(true);
+        jButton_salvar_alterações.setVisible(true);
+        jButton_voltar_ao_cadastro.setVisible(true);
+        /*jLabel_nome_cliente.setVisible(false);
+        jLabel_rua_cliente.setVisible(false);
+        jLabel_numero_cliente.setVisible(false);
+        jLabel_bairro_cliente.setVisible(false);
+        jLabel_cidade_cliente.setVisible(false);
+        jLabel_celular_cliente.setVisible(false);
+        jLabel_sexo_cliente.setVisible(false);
+        sexo_feminino.setVisible(false);
+        sexo_masculino.setVisible(false);
+        jLabel_dados_pessoais.setVisible(false);
+        jLabel_endereco.setVisible(false);
+        jPanel2.setVisible(false);*/
+        
+        
+        
+    }//GEN-LAST:event_jMenuItem1_editar_clienteActionPerformed
+
+    private void jButton_pesquisar_cpf_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_pesquisar_cpf_clienteActionPerformed
+       List<Cliente> clientes = new ClienteDao().read();
+        
+        ClienteDao clid = new ClienteDao();
+       
+        
+        String cpfDigitado = cadastrar_cpf_cliente.getText();//pega o cpf digitado
+        
+        
+        for(Cliente c : clientes){
+        String cpf_banco = c.getCpf_cliente();
+            
+             
+                        
+            if(cpfDigitado.equals(cpf_banco)){
+                //JOptionPane.showMessageDialog(null, "Encontrado!");
+                
+                cadastro_nome_cliente.setText(c.getNome_cliente());
+                //editar_sexo_cliente.setText(c.getSexo_cliente());
+                cadastro_rua_cliente.setText(c.getRua_cliente());
+                cadastro_numero_cliente.setText(Integer.toString(c.getNumeracao_casa_cliente()));
+                cadastro_bairro_cliente.setText(c.getBairro_cliente());
+                cadastro_cidade_cliente.setText(c.getCidade_cliente());
+                cadastro_celular_cliente.setText(c.getCelular_cliente());
+               
+                }else{
+            //if(!codigoDigitado.equals(pd)){
+                    
+                    //JOptionPane.showMessageDialog(null, "Não encontrado!");
+                   
+               }
+        }
+    }//GEN-LAST:event_jButton_pesquisar_cpf_clienteActionPerformed
+
+    private void jButton_salvar_alteraçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_salvar_alteraçõesActionPerformed
+        ClienteDao cli = new ClienteDao();
+        
+        Cliente c = new Cliente();
+        
+        c.setCpf_cliente(cadastrar_cpf_cliente.getText());
+        c.setNome_cliente(cadastro_nome_cliente.getText());
+        if(sexo_feminino.isSelected()){
+           c.setSexo_cliente(sexo_feminino.getText());
+       }
+       if(sexo_masculino.isSelected()){
+           c.setSexo_cliente(sexo_masculino.getText());
+       }
+        c.setRua_cliente(cadastro_rua_cliente.getText());
+        c.setNumeracao_casa_cliente(Integer.parseInt(cadastro_numero_cliente.getText()));
+        c.setBairro_cliente(cadastro_bairro_cliente.getText());
+        c.setCidade_cliente(cadastro_cidade_cliente.getText());
+        c.setCelular_cliente(cadastro_celular_cliente.getText());
+        
+        cli.update(c);
+        
+        limparCampos();
+    }//GEN-LAST:event_jButton_salvar_alteraçõesActionPerformed
+
+    private void jButton_voltar_ao_cadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_voltar_ao_cadastroActionPerformed
+        jButton_cadastrar_cliente.setVisible(true);
+        jButton_pesquisar_cpf_cliente.setVisible(false);
+        jButton_salvar_alterações.setVisible(false);
+        jButton_voltar_ao_cadastro.setVisible(false);
+        jButton_excluir_cliente.setVisible(false);
+    }//GEN-LAST:event_jButton_voltar_ao_cadastroActionPerformed
+
+    private void jMenuItem2_excluir_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2_excluir_clienteActionPerformed
+        jButton_cadastrar_cliente.setVisible(false);
+        jButton_pesquisar_cpf_cliente.setVisible(true);
+        jButton_voltar_ao_cadastro.setVisible(true);
+        jButton_excluir_cliente.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2_excluir_clienteActionPerformed
+
+    private void jButton_excluir_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_excluir_clienteActionPerformed
+        ClienteDao clid = new ClienteDao();
+       
+        Cliente c = new Cliente();
+       
+         c.setCpf_cliente(cadastrar_cpf_cliente.getText());
+        //p.setNome_produto(editar_nome_produto.getText());
+       // p.setQuantidade_produto(Integer.parseInt(editar_quantidade_produto.getText()));
+        //p.setPreco_produto(Double.parseDouble(editar_preco_produto.getText()));
+        //p.setFornecedor_produto(editar_fornecedor_produto.getText());
+          
+       
+       clid.delete(c);
+       
+       limparCampos();
+    }//GEN-LAST:event_jButton_excluir_clienteActionPerformed
+
+    public void limparCampos(){
+        cadastrar_cpf_cliente.setText("");
+        cadastro_nome_cliente.setText("");
+        cadastro_rua_cliente.setText("");
+        cadastro_numero_cliente.setText("");
+        cadastro_bairro_cliente.setText("");
+        cadastro_cidade_cliente.setText("");
+        cadastro_celular_cliente.setText("");
+    }
     /**
      * @param args the command line arguments
      */
@@ -276,7 +527,7 @@ public class Cliente_view extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Cadastro_sexo_cliente;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JFormattedTextField cadastrar_cpf_cliente;
     private javax.swing.JTextField cadastro_bairro_cliente;
     private javax.swing.JFormattedTextField cadastro_celular_cliente;
@@ -285,18 +536,28 @@ public class Cliente_view extends javax.swing.JFrame {
     private javax.swing.JTextField cadastro_numero_cliente;
     private javax.swing.JTextField cadastro_rua_cliente;
     private javax.swing.JButton jButton_cadastrar_cliente;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JButton jButton_excluir_cliente;
+    private javax.swing.JButton jButton_pesquisar_cpf_cliente;
+    private javax.swing.JButton jButton_salvar_alterações;
+    private javax.swing.JButton jButton_voltar_ao_cadastro;
+    private javax.swing.JLabel jLabel_bairro_cliente;
+    private javax.swing.JLabel jLabel_celular_cliente;
+    private javax.swing.JLabel jLabel_cidade_cliente;
+    private javax.swing.JLabel jLabel_cpf_cliente;
+    private javax.swing.JLabel jLabel_dados_pessoais;
+    private javax.swing.JLabel jLabel_endereco;
+    private javax.swing.JLabel jLabel_nome_cliente;
+    private javax.swing.JLabel jLabel_numero_cliente;
+    private javax.swing.JLabel jLabel_rua_cliente;
+    private javax.swing.JLabel jLabel_sexo_cliente;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1_editar_cliente;
+    private javax.swing.JMenuItem jMenuItem2_excluir_cliente;
+    private javax.swing.JMenuItem jMenuItem3_listar_cliente;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton sexo_feminino;
+    private javax.swing.JRadioButton sexo_masculino;
     // End of variables declaration//GEN-END:variables
 }

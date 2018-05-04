@@ -46,12 +46,14 @@ public class Client extends JFrame{
                 
         super("Cadastrar Cliente");
         
+        Cliente c = new Cliente();
+        ClienteDao cd = new ClienteDao();
+        
         JPanel painel = new JPanel();
         JPanel painel2 = new JPanel();
         JPanel painel3 = new JPanel();
         JPanel painel4 = new JPanel();
-        
-        
+       
         add(BorderLayout.WEST,painel2);
         add(BorderLayout.CENTER,painel);
         add(BorderLayout.EAST,painel3);
@@ -64,6 +66,7 @@ public class Client extends JFrame{
         //add(BorderLayout.SOUTH, cont);
         
         painel.setSize(400, 400);
+        
         //cont.setSize(400, 400);
                 
         Cpf = new JLabel("CPF:", JLabel.CENTER);
@@ -81,8 +84,9 @@ public class Client extends JFrame{
         cadastro_nome_cliente = new JTextField(12);
                        
         Sexo = new JLabel("Sexo:", JLabel.CENTER);
-        Cadastro_sexo_cliente = new JTextField(12);
-        
+        Feminino = new JRadioButton("Feminino");
+        Masculino = new JRadioButton("Masculino");
+                  
         Rua = new JLabel("Rua:", JLabel.CENTER);
         cadastro_rua_cliente = new JTextField(12);
         
@@ -133,7 +137,8 @@ public class Client extends JFrame{
         painel.add(cadastro_nome_cliente);
         
         painel.add(Sexo);
-        painel.add(Cadastro_sexo_cliente);
+        painel.add(Feminino);
+        painel.add(Masculino);
        
         painel.add(Rua);
         painel.add(cadastro_rua_cliente);
@@ -171,12 +176,12 @@ public class Client extends JFrame{
 public void limparCampos(){
     cadastrar_cpf_cliente.setText("");
     cadastro_nome_cliente.setText("");
-    Cadastro_sexo_cliente.setText("");
     cadastro_rua_cliente.setText("");
     cadastro_numero_cliente.setText("");
     cadastro_bairro_cliente.setText("");
     cadastro_cidade_cliente.setText("");
     cadastro_celular_cliente.setText("");
+    
 }
     
 
@@ -210,7 +215,12 @@ class botaoCadastrar implements ActionListener{
 
              c.setCpf_cliente(cadastrar_cpf_cliente.getText());
              c.setNome_cliente(cadastro_nome_cliente.getText());
-             c.setSexo_cliente(Cadastro_sexo_cliente.getText());
+            if(Feminino.isSelected()){
+              c.setSexo_cliente("Feminino");
+            }
+            if(Masculino.isSelected()){
+              c.setSexo_cliente("Masculino");
+            }
              c.setRua_cliente(cadastro_rua_cliente.getText());
              c.setNumeracao_casa_cliente(Integer.parseInt(cadastro_numero_cliente.getText()));
              c.setBairro_cliente(cadastro_bairro_cliente.getText());
@@ -283,6 +293,7 @@ class botaoBuscar implements ActionListener{
     @Override
      public void actionPerformed(ActionEvent e) {
        List<Cliente> clientes = new ClienteDao().read();
+       Cliente c = new Cliente();
         
         ClienteDao clid = new ClienteDao();
        
@@ -296,7 +307,14 @@ class botaoBuscar implements ActionListener{
                 //JOptionPane.showMessageDialog(null, "Encontrado!");
                 
                 cadastro_nome_cliente.setText(clientes.get(i).getNome_cliente());
-                Cadastro_sexo_cliente.setText(clientes.get(i).getSexo_cliente());
+                if((clientes.get(i).getSexo_cliente()).equals("Feminino")){
+                    Feminino.isSelected();
+                   
+                }
+                if((clientes.get(i).getSexo_cliente()).equals("Masculino")){
+
+                     Masculino.isSelected();
+                }
                 cadastro_rua_cliente.setText(clientes.get(i).getRua_cliente());
                 cadastro_numero_cliente.setText(Integer.toString(clientes.get(i).getNumeracao_casa_cliente()));
                 cadastro_bairro_cliente.setText(clientes.get(i).getBairro_cliente());
