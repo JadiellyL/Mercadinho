@@ -73,17 +73,16 @@ public class Login_view extends javax.swing.JFrame {
 
         codigo_vendedor_login.setBackground(new java.awt.Color(255, 255, 255));
         codigo_vendedor_login.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        codigo_vendedor_login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        codigo_vendedor_login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(141, 170, 188)));
 
         senha_vendedor_login.setBackground(new java.awt.Color(255, 255, 255));
         senha_vendedor_login.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        senha_vendedor_login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        senha_vendedor_login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(141, 170, 188)));
 
-        jButton1.setBackground(new java.awt.Color(101, 100, 255));
         jButton1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(5, 5, 5));
         jButton1.setText("Entrar");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -105,7 +104,7 @@ public class Login_view extends javax.swing.JFrame {
                         .addGap(121, 121, 121))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2)
                                 .addComponent(senha_vendedor_login, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -127,11 +126,11 @@ public class Login_view extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(senha_vendedor_login, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(161, 167, 198));
+        jPanel2.setBackground(new java.awt.Color(141, 170, 188));
         jPanel2.setBorder(null);
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 

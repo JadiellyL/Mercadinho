@@ -7,6 +7,7 @@ package interfaceSwing;
 
 import java.util.List;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import model.Cliente;
 import model.dao.ClienteDao;
 
@@ -164,7 +165,7 @@ public class Cliente_view extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(cadastrar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(jButton_pesquisar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton_pesquisar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel_sexo_cliente)
                     .addComponent(sexo_feminino)
                     .addComponent(sexo_masculino)
@@ -200,7 +201,7 @@ public class Cliente_view extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastrar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_pesquisar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_pesquisar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastro_numero_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -224,7 +225,7 @@ public class Cliente_view extends javax.swing.JFrame {
                         .addComponent(jLabel_cidade_cliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cadastro_cidade_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(21, Short.MAX_VALUE))))
+                        .addContainerGap(19, Short.MAX_VALUE))))
         );
 
         jButton_cadastrar_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
@@ -267,7 +268,7 @@ public class Cliente_view extends javax.swing.JFrame {
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 25));
 
-        jMenu1.setText("Arquivo");
+        jMenu1.setText("Opções");
 
         jMenuItem1_editar_cliente.setText("Editar Cadastro de Cliente");
         jMenuItem1_editar_cliente.addActionListener(new java.awt.event.ActionListener() {
@@ -316,11 +317,11 @@ public class Cliente_view extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(344, 344, 344)
-                .addComponent(jButton_excluir_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton_excluir_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_cadastrar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton_cadastrar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_salvar_alterações)
+                .addComponent(jButton_salvar_alterações, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton_voltar_ao_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -404,34 +405,30 @@ public class Cliente_view extends javax.swing.JFrame {
        List<Cliente> clientes = new ClienteDao().read();
         
         ClienteDao clid = new ClienteDao();
-       
+       boolean achou = false;
         
         String cpfDigitado = cadastrar_cpf_cliente.getText();//pega o cpf digitado
         
         
-        for(Cliente c : clientes){
-        String cpf_banco = c.getCpf_cliente();
-            
-             
+        for(int i = 0; i < clientes.size(); i++){
+        String cpf_banco = clientes.get(i).getCpf_cliente();
                         
             if(cpfDigitado.equals(cpf_banco)){
+                achou = true;
                 //JOptionPane.showMessageDialog(null, "Encontrado!");
                 
-                cadastro_nome_cliente.setText(c.getNome_cliente());
+                cadastro_nome_cliente.setText(clientes.get(i).getNome_cliente());
                 //editar_sexo_cliente.setText(c.getSexo_cliente());
-                cadastro_rua_cliente.setText(c.getRua_cliente());
-                cadastro_numero_cliente.setText(Integer.toString(c.getNumeracao_casa_cliente()));
-                cadastro_bairro_cliente.setText(c.getBairro_cliente());
-                cadastro_cidade_cliente.setText(c.getCidade_cliente());
-                cadastro_celular_cliente.setText(c.getCelular_cliente());
+                cadastro_rua_cliente.setText(clientes.get(i).getRua_cliente());
+                cadastro_numero_cliente.setText(Integer.toString(clientes.get(i).getNumeracao_casa_cliente()));
+                cadastro_bairro_cliente.setText(clientes.get(i).getBairro_cliente());
+                cadastro_cidade_cliente.setText(clientes.get(i).getCidade_cliente());
+                cadastro_celular_cliente.setText(clientes.get(i).getCelular_cliente());
                
-                }else{
-            //if(!codigoDigitado.equals(pd)){
-                    
-                    //JOptionPane.showMessageDialog(null, "Não encontrado!");
-                   
-               }
+                }
         }
+        
+        JOptionPane.showMessageDialog(null, achou);
     }//GEN-LAST:event_jButton_pesquisar_cpf_clienteActionPerformed
 
     private void jButton_salvar_alteraçõesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_salvar_alteraçõesActionPerformed

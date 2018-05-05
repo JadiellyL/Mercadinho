@@ -30,8 +30,7 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
    
     public Mostrar_Cliente() {
         initComponents();
-        //jTable_clientes1.setVisible(false);
-        jTable_clientes.setAutoCreateRowSorter(rootPaneCheckingEnabled);
+       
     }
 
  
@@ -174,6 +173,16 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
         });
         jTable_clientes.setRequestFocusEnabled(false);
         jScrollPane1.setViewportView(jTable_clientes);
+        if (jTable_clientes.getColumnModel().getColumnCount() > 0) {
+            jTable_clientes.getColumnModel().getColumn(0).setHeaderValue("CPF");
+            jTable_clientes.getColumnModel().getColumn(1).setHeaderValue("Nome");
+            jTable_clientes.getColumnModel().getColumn(2).setHeaderValue("Sexo");
+            jTable_clientes.getColumnModel().getColumn(3).setHeaderValue("Rua");
+            jTable_clientes.getColumnModel().getColumn(4).setHeaderValue("Número Res.");
+            jTable_clientes.getColumnModel().getColumn(5).setHeaderValue("Bairro");
+            jTable_clientes.getColumnModel().getColumn(6).setHeaderValue("Cidade");
+            jTable_clientes.getColumnModel().getColumn(7).setHeaderValue("Celular");
+        }
 
         try {
             jTextField_cpf_cliente_listar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -194,19 +203,19 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
         jPanel_mostrarLayout.setHorizontalGroup(
             jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_mostrarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(102, Short.MAX_VALUE)
                 .addComponent(jTextField_cpf_cliente_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton_pesquisar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton_pesquisar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton_listar_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton_listar_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(113, 113, 113))
             .addGroup(jPanel_mostrarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 859, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel_mostrarLayout.setVerticalGroup(
             jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,22 +228,20 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
                     .addComponent(jTextField_cpf_cliente_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel_mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel_mostrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 25, Short.MAX_VALUE))
+            .addComponent(jPanel_mostrar, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
         );
 
         pack();
@@ -243,7 +250,7 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
     private void jButton_listar_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_listar_clientesActionPerformed
         
         //List<ProdutoDao> pd = (List<ProdutoDao>) new ProdutoDao();
-        restaurarTabela();
+       
         List<Cliente> clientes = new ClienteDao().read();
        for(int i = 0; i < clientes.size(); i++){
           // int j = 0;
@@ -258,6 +265,7 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
             jTable_clientes.setValueAt(clientes.get(i).getCidade_cliente(), i, k+6);
             jTable_clientes.setValueAt(clientes.get(i).getCelular_cliente(), i, k+7);
             //j++;
+            //jTable_clientes.setAutoCreateRowSorter(rootPaneCheckingEnabled);
             k++;
             
         }
@@ -286,7 +294,7 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
             jTable_clientes.setValueAt(clientes.get(i).getNumeracao_casa_cliente(), 0, 4);
             jTable_clientes.setValueAt(clientes.get(i).getBairro_cliente(), 0, 5);
             jTable_clientes.setValueAt(clientes.get(i).getCidade_cliente(), 0, 6);
-            jTable_clientes.setValueAt(c.getCelular_cliente(),0, 7);
+            jTable_clientes.setValueAt(clientes.get(i).getCelular_cliente(),0, 7);
                
          
                                 
@@ -300,14 +308,28 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton_pesquisar_clienteActionPerformed
 
-    public void restaurarTabela(){
-        jTable_clientes.setVisible(true);
-    }
+    
     private void jButton_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_limparActionPerformed
       
         //jTable_clientes.setVisible(false);
-        jTable_clientes.selectAll();
-        jTable_clientes.setDropMode(DropMode.ON);
+        List<Cliente> clientes = new ClienteDao().read();
+       for(int i = 0; i < clientes.size(); i++){
+          // int j = 0;
+           int k = 0;
+                   
+            jTable_clientes.setValueAt(" ", i, k);
+            jTable_clientes.setValueAt(" ", i, k+1);
+            jTable_clientes.setValueAt(" ", i, k+2);
+            jTable_clientes.setValueAt(" ", i, k+3);
+            jTable_clientes.setValueAt(" ", i, k+4);
+            jTable_clientes.setValueAt(" ", i, k+5);
+            jTable_clientes.setValueAt(" ", i, k+6);
+            jTable_clientes.setValueAt(" ", i, k+7);
+            //j++;
+            //jTable_clientes.setAutoCreateRowSorter(rootPaneCheckingEnabled);
+            k++;
+            
+        }
 		
         
     }//GEN-LAST:event_jButton_limparActionPerformed

@@ -103,7 +103,7 @@
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="61" max="32767" attributes="0"/>
+                  <EmptySpace pref="52" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -134,7 +134,7 @@
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cb" green="74" red="65" type="rgb"/>
+              <Color blue="bc" green="aa" red="8d" type="rgb"/>
             </Property>
           </Properties>
 
@@ -146,7 +146,7 @@
                       <Component id="jLabel3" min="-2" pref="50" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="358" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="data_venda" min="-2" max="-2" attributes="0"/>
@@ -156,7 +156,7 @@
                               <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                               <Component id="cpf_cliente_venda" min="-2" pref="159" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="jButton_adicionarDetalhesVenda" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="jButton_adicionarDetalhesVenda" min="-2" pref="145" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -177,6 +177,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="243" max="-2" attributes="0"/>
                               <Component id="adicionar_produto" min="-2" pref="168" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButtonFInalizar" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
@@ -196,7 +198,7 @@
                               <Component id="modifica_preco" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -212,7 +214,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           <Component id="cpf_cliente_venda" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="jButton_adicionarDetalhesVenda" alignment="3" min="-2" pref="49" max="-2" attributes="0"/>
+                          <Component id="jButton_adicionarDetalhesVenda" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -236,7 +238,10 @@
                           <Component id="valor_multiplicado_itens" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="190" max="32767" attributes="0"/>
-                      <Component id="adicionar_produto" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="adicionar_produto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonFInalizar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="133" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -383,12 +388,20 @@
                 <Property name="text" type="java.lang.String" value="data"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JButton" name="jButtonFInalizar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Finalizar Compra"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFInalizarActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel3">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cb" green="74" red="65" type="rgb"/>
+              <Color blue="bc" green="aa" red="8d" type="rgb"/>
             </Property>
           </Properties>
 

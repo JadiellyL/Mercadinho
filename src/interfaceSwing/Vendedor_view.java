@@ -5,8 +5,11 @@
  */
 package interfaceSwing;
 
+import java.util.List;
 import javax.swing.JOptionPane;
+import model.Cliente;
 import model.Vendedor;
+import model.dao.ClienteDao;
 import model.dao.VendedorDao;
 
 /**
@@ -20,6 +23,13 @@ public class Vendedor_view extends javax.swing.JFrame {
      */
     public Vendedor_view() {
         initComponents();
+        jButton1_salvar_vendedor.setVisible(false);
+        jButton1_excluir_vendedor.setVisible(false);
+        jButton1_voltar_vendedor.setVisible(false);
+        jButton1_pesquisar_vendedor.setVisible(false);
+        jLabel_codigo_vendedor.setVisible(false);
+        codigo_vendedor_cadastro.setVisible(false);
+        
     }
 
     /**
@@ -38,31 +48,38 @@ public class Vendedor_view extends javax.swing.JFrame {
         buttonGroup5 = new javax.swing.ButtonGroup();
         buttonGroup6 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         nome_vendedor_cadastro = new javax.swing.JTextField();
-        jButton1_cadastrar_vendedor = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        senha_cadastro = new javax.swing.JPasswordField();
         sexo_feminino_cadastro_vendedor = new javax.swing.JRadioButton();
         seco_masculino_cadastro_vendedor = new javax.swing.JRadioButton();
+        jLabel_codigo_vendedor = new javax.swing.JLabel();
+        codigo_vendedor_cadastro = new javax.swing.JTextField();
+        jButton1_pesquisar_vendedor = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        nome_vendedor_cadastro2 = new javax.swing.JTextField();
+        jButton1_cadastrar_vendedor1 = new javax.swing.JButton();
+        jButton1_excluir_vendedor = new javax.swing.JButton();
+        jButton1_salvar_vendedor = new javax.swing.JButton();
+        jButton1_voltar_vendedor = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem_editar_vendedor = new javax.swing.JMenuItem();
+        jMenuItem_excluir_vendedor = new javax.swing.JMenuItem();
+        jMenuItem_listar_vendedor = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(880, 565));
 
-        jPanel1.setBackground(new java.awt.Color(101, 116, 203));
+        jPanel1.setBackground(new java.awt.Color(141, 170, 188));
         jPanel1.setMaximumSize(new java.awt.Dimension(700, 706));
         jPanel1.setMinimumSize(new java.awt.Dimension(700, 706));
         jPanel1.setPreferredSize(new java.awt.Dimension(1370, 700));
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setVerifyInputWhenFocusTarget(false);
-
-        jLabel1.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cadastrar Vendedor");
 
         jLabel2.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -76,12 +93,11 @@ public class Vendedor_view extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Senha:");
 
-        jButton1_cadastrar_vendedor.setText("Cadastrar");
-        jButton1_cadastrar_vendedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1_cadastrar_vendedorActionPerformed(evt);
-            }
-        });
+        nome_vendedor_cadastro.setBackground(new java.awt.Color(255, 255, 255));
+        nome_vendedor_cadastro.setBorder(null);
+
+        senha_cadastro.setBackground(new java.awt.Color(255, 255, 255));
+        senha_cadastro.setBorder(null);
 
         sexo_feminino_cadastro_vendedor.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         sexo_feminino_cadastro_vendedor.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,73 +107,141 @@ public class Vendedor_view extends javax.swing.JFrame {
         seco_masculino_cadastro_vendedor.setForeground(new java.awt.Color(255, 255, 255));
         seco_masculino_cadastro_vendedor.setText("Masculino");
 
+        jLabel_codigo_vendedor.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel_codigo_vendedor.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_codigo_vendedor.setText("Código:");
+
+        codigo_vendedor_cadastro.setBackground(new java.awt.Color(255, 255, 255));
+        codigo_vendedor_cadastro.setBorder(null);
+
+        jButton1_pesquisar_vendedor.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton1_pesquisar_vendedor.setText("Pesquisar");
+        jButton1_pesquisar_vendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_pesquisar_vendedorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(353, 353, 353)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel_codigo_vendedor)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(552, 552, 552)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(444, 444, 444)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nome_vendedor_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jPasswordField1))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(sexo_feminino_cadastro_vendedor)
-                                        .addComponent(seco_masculino_cadastro_vendedor))
-                                    .addGap(19, 19, 19)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(588, 588, 588)
-                        .addComponent(jButton1_cadastrar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(596, Short.MAX_VALUE))
+                        .addComponent(codigo_vendedor_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(jButton1_pesquisar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(senha_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nome_vendedor_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(sexo_feminino_cadastro_vendedor)
+                    .addComponent(seco_masculino_cadastro_vendedor)
+                    .addComponent(jLabel4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(127, 127, 127)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(nome_vendedor_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jLabel3)
-                        .addGap(31, 31, 31))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(sexo_feminino_cadastro_vendedor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(seco_masculino_cadastro_vendedor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addComponent(jLabel_codigo_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(131, 131, 131)
-                .addComponent(jButton1_cadastrar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(223, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(codigo_vendedor_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1_pesquisar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nome_vendedor_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sexo_feminino_cadastro_vendedor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(seco_masculino_cadastro_vendedor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(senha_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jLabel5.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(14, 7, 7));
+        jLabel5.setText("Dados do Vendedor:");
+
+        nome_vendedor_cadastro2.setBackground(new java.awt.Color(255, 255, 255));
+        nome_vendedor_cadastro2.setBorder(null);
+
+        jButton1_cadastrar_vendedor1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton1_cadastrar_vendedor1.setText("Cadastrar");
+        jButton1_cadastrar_vendedor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_cadastrar_vendedor1ActionPerformed(evt);
+            }
+        });
+
+        jButton1_excluir_vendedor.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton1_excluir_vendedor.setText("Excluir");
+        jButton1_excluir_vendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_excluir_vendedorActionPerformed(evt);
+            }
+        });
+
+        jButton1_salvar_vendedor.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton1_salvar_vendedor.setText("Salvar");
+        jButton1_salvar_vendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_salvar_vendedorActionPerformed(evt);
+            }
+        });
+
+        jButton1_voltar_vendedor.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton1_voltar_vendedor.setText("Voltar");
+        jButton1_voltar_vendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_voltar_vendedorActionPerformed(evt);
+            }
+        });
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 25));
 
-        jMenu1.setText("File");
+        jMenu1.setText("Opções");
+
+        jMenuItem_editar_vendedor.setText("Editar Cadastro de Vendedor");
+        jMenuItem_editar_vendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_editar_vendedorActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem_editar_vendedor);
+
+        jMenuItem_excluir_vendedor.setText("Excluir Cadastro de Vendedor");
+        jMenuItem_excluir_vendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_excluir_vendedorActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem_excluir_vendedor);
+
+        jMenuItem_listar_vendedor.setText("Listar Vendedor");
+        jMenuItem_listar_vendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_listar_vendedorActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem_listar_vendedor);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Sair");
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -166,45 +250,162 @@ public class Vendedor_view extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 861, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(98, Short.MAX_VALUE)
+                .addComponent(jButton1_excluir_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1_cadastrar_vendedor1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1_salvar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1_voltar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(366, 366, 366))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(351, 351, 351)
+                    .addComponent(nome_vendedor_cadastro2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(352, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1_excluir_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1_cadastrar_vendedor1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1_salvar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1_voltar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(70, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(252, 252, 252)
+                    .addComponent(nome_vendedor_cadastro2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(253, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1_cadastrar_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_cadastrar_vendedorActionPerformed
-      Vendedor v = new Vendedor();
-      VendedorDao vd = new VendedorDao();
+    private void jButton1_pesquisar_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_pesquisar_vendedorActionPerformed
+      List<Vendedor> vendedores = new VendedorDao().read();
+        
+        VendedorDao clid = new VendedorDao();
+       boolean achou = false;
+        
+        String codigoDigitado = codigo_vendedor_cadastro.getText();//pega o cpf digitado
+        
+        for(int i = 0; i < vendedores.size(); i++){
+        String cod_banco = Integer.toString(vendedores.get(i).getCod_vendedor());
+                        
+            if(codigoDigitado.equals(cod_banco)){
+                achou = true;
+                //JOptionPane.showMessageDialog(null, "Encontrado!");
+                
+                nome_vendedor_cadastro.setText(vendedores.get(i).getNome_vendedor());
+                //editar_sexo_cliente.setText(c.getSexo_cliente());
+                senha_cadastro.setText(vendedores.get(i).getSenha_vendedor());
+                               
+                }
+        }
+        
+        JOptionPane.showMessageDialog(null, achou);
+        
       
-      v.setNome_vendedor(nome_vendedor_cadastro.getText());
-      //v.setSexo_vendedor(sexo_vendedor_cadastro.getText());
-      if(sexo_feminino_cadastro_vendedor.isSelected()){
-          v.setSexo_vendedor("Feminino");
-      }
-      if(seco_masculino_cadastro_vendedor.isSelected()){
-          v.setSexo_vendedor("Masculino");
-      }/*
-      if((sexo_feminino_cadastro_vendedor.isSelected()) && 
-              (seco_masculino_cadastro_vendedor.isSelected())){
-          JOptionPane.showMessageDialog(null, "Selecione apenas um gênero!");
-      }*/
-      v.setSenha_vendedor(jPasswordField1.getText());
-      
-      vd.create(v);
-      limparCampos();
-      
-    }//GEN-LAST:event_jButton1_cadastrar_vendedorActionPerformed
+    }//GEN-LAST:event_jButton1_pesquisar_vendedorActionPerformed
+
+    private void jButton1_cadastrar_vendedor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_cadastrar_vendedor1ActionPerformed
+        Vendedor v = new Vendedor();
+        VendedorDao vd = new VendedorDao();
+
+        v.setNome_vendedor(nome_vendedor_cadastro.getText());
+        //v.setSexo_vendedor(sexo_vendedor_cadastro.getText());
+        if(sexo_feminino_cadastro_vendedor.isSelected()){
+            v.setSexo_vendedor("Feminino");
+        }
+        if(seco_masculino_cadastro_vendedor.isSelected()){
+            v.setSexo_vendedor("Masculino");
+        }/*
+        if((sexo_feminino_cadastro_vendedor.isSelected()) && 
+                (seco_masculino_cadastro_vendedor.isSelected())){
+            JOptionPane.showMessageDialog(null, "Selecione apenas um gênero!");
+        }*/
+        v.setSenha_vendedor(senha_cadastro.getText());
+
+        vd.create(v);
+        limparCampos();
+    }//GEN-LAST:event_jButton1_cadastrar_vendedor1ActionPerformed
+
+    private void jMenuItem_editar_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_editar_vendedorActionPerformed
+        jButton1_salvar_vendedor.setVisible(true);
+        jButton1_voltar_vendedor.setVisible(true);
+        jButton1_pesquisar_vendedor.setVisible(true);
+        jLabel_codigo_vendedor.setVisible(true);
+        codigo_vendedor_cadastro.setVisible(true);
+        jButton1_cadastrar_vendedor1.setVisible(false);
+    }//GEN-LAST:event_jMenuItem_editar_vendedorActionPerformed
+
+    private void jButton1_excluir_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_excluir_vendedorActionPerformed
+        VendedorDao vd = new VendedorDao();
+       
+        Vendedor v = new Vendedor();
+       
+        v.setCod_vendedor(Integer.parseInt(codigo_vendedor_cadastro.getText()));
+        //p.setNome_produto(editar_nome_produto.getText());
+       // p.setQuantidade_produto(Integer.parseInt(editar_quantidade_produto.getText()));
+        //p.setPreco_produto(Double.parseDouble(editar_preco_produto.getText()));
+        //p.setFornecedor_produto(editar_fornecedor_produto.getText());
+          
+       
+       vd.delete(v);
+       
+       limparCampos();
+    }//GEN-LAST:event_jButton1_excluir_vendedorActionPerformed
+
+    private void jButton1_salvar_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_salvar_vendedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1_salvar_vendedorActionPerformed
+
+    private void jButton1_voltar_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_voltar_vendedorActionPerformed
+        jButton1_salvar_vendedor.setVisible(false);
+        jButton1_excluir_vendedor.setVisible(false);
+        jButton1_voltar_vendedor.setVisible(false);
+        jButton1_pesquisar_vendedor.setVisible(false);
+        jLabel_codigo_vendedor.setVisible(false);
+        codigo_vendedor_cadastro.setVisible(false);
+        jButton1_cadastrar_vendedor1.setVisible(true);
+    }//GEN-LAST:event_jButton1_voltar_vendedorActionPerformed
+
+    private void jMenuItem_excluir_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_excluir_vendedorActionPerformed
+        jButton1_excluir_vendedor.setVisible(true);
+        jButton1_voltar_vendedor.setVisible(true);
+        jButton1_pesquisar_vendedor.setVisible(true);
+        jLabel_codigo_vendedor.setVisible(true);
+        codigo_vendedor_cadastro.setVisible(true);
+        jButton1_cadastrar_vendedor1.setVisible(false);
+    }//GEN-LAST:event_jMenuItem_excluir_vendedorActionPerformed
+
+    private void jMenuItem_listar_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_listar_vendedorActionPerformed
+        Mostrar_Vendedor mv = new Mostrar_Vendedor();
+        
+        mv.setVisible(true);
+    }//GEN-LAST:event_jMenuItem_listar_vendedorActionPerformed
 
 public void limparCampos(){
     nome_vendedor_cadastro.setText("");
     
-    jPasswordField1.setText("");
+    senha_cadastro.setText("");
 }
     /**
      * @param args the command line arguments
@@ -248,18 +449,28 @@ public void limparCampos(){
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.ButtonGroup buttonGroup5;
     private javax.swing.ButtonGroup buttonGroup6;
-    private javax.swing.JButton jButton1_cadastrar_vendedor;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField codigo_vendedor_cadastro;
+    private javax.swing.JButton jButton1_cadastrar_vendedor1;
+    private javax.swing.JButton jButton1_excluir_vendedor;
+    private javax.swing.JButton jButton1_pesquisar_vendedor;
+    private javax.swing.JButton jButton1_salvar_vendedor;
+    private javax.swing.JButton jButton1_voltar_vendedor;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel_codigo_vendedor;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem_editar_vendedor;
+    private javax.swing.JMenuItem jMenuItem_excluir_vendedor;
+    private javax.swing.JMenuItem jMenuItem_listar_vendedor;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField nome_vendedor_cadastro;
+    private javax.swing.JTextField nome_vendedor_cadastro2;
     private javax.swing.JRadioButton seco_masculino_cadastro_vendedor;
+    private javax.swing.JPasswordField senha_cadastro;
     private javax.swing.JRadioButton sexo_feminino_cadastro_vendedor;
     // End of variables declaration//GEN-END:variables
 }
