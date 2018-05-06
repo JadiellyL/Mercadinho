@@ -69,7 +69,6 @@ public class Vendedor_view extends javax.swing.JFrame {
         jMenuItem_editar_vendedor = new javax.swing.JMenuItem();
         jMenuItem_excluir_vendedor = new javax.swing.JMenuItem();
         jMenuItem_listar_vendedor = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -114,6 +113,7 @@ public class Vendedor_view extends javax.swing.JFrame {
         codigo_vendedor_cadastro.setBorder(null);
 
         jButton1_pesquisar_vendedor.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton1_pesquisar_vendedor.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/pesquisarCli.png")); // NOI18N
         jButton1_pesquisar_vendedor.setText("Pesquisar");
         jButton1_pesquisar_vendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,8 +212,10 @@ public class Vendedor_view extends javax.swing.JFrame {
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 25));
 
+        jMenu1.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/opcoes.png")); // NOI18N
         jMenu1.setText("Opções");
 
+        jMenuItem_editar_vendedor.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/editar_vendedor.png")); // NOI18N
         jMenuItem_editar_vendedor.setText("Editar Cadastro de Vendedor");
         jMenuItem_editar_vendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,6 +224,7 @@ public class Vendedor_view extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem_editar_vendedor);
 
+        jMenuItem_excluir_vendedor.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/excluirVendedor.png")); // NOI18N
         jMenuItem_excluir_vendedor.setText("Excluir Cadastro de Vendedor");
         jMenuItem_excluir_vendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,6 +233,7 @@ public class Vendedor_view extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem_excluir_vendedor);
 
+        jMenuItem_listar_vendedor.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/listar_clientes.png")); // NOI18N
         jMenuItem_listar_vendedor.setText("Listar Vendedor");
         jMenuItem_listar_vendedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,9 +243,6 @@ public class Vendedor_view extends javax.swing.JFrame {
         jMenu1.add(jMenuItem_listar_vendedor);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Sair");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -373,7 +374,25 @@ public class Vendedor_view extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1_excluir_vendedorActionPerformed
 
     private void jButton1_salvar_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_salvar_vendedorActionPerformed
-        // TODO add your handling code here:
+        VendedorDao vd = new VendedorDao();
+        
+        Vendedor v = new Vendedor();
+        
+        v.setCod_vendedor(Integer.parseInt(codigo_vendedor_cadastro.getText()));
+        v.setNome_vendedor(nome_vendedor_cadastro.getText());
+        
+        if(sexo_feminino_cadastro_vendedor.isSelected()){
+            v.setSexo_vendedor("Feminino");
+        }
+        if(seco_masculino_cadastro_vendedor.isSelected()){
+            v.setSexo_vendedor("Masculino");
+        }
+        v.setSenha_vendedor(senha_cadastro.getText());
+        
+        
+        vd.update(v);
+        
+        limparCampos();
     }//GEN-LAST:event_jButton1_salvar_vendedorActionPerformed
 
     private void jButton1_voltar_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_voltar_vendedorActionPerformed
@@ -460,7 +479,6 @@ public void limparCampos(){
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel_codigo_vendedor;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem_editar_vendedor;
     private javax.swing.JMenuItem jMenuItem_excluir_vendedor;

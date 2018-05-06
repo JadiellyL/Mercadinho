@@ -10,9 +10,13 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import model.Venda;
 
 /**
  *
@@ -27,23 +31,22 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
    
     public Pagina_inicial_view() {
         initComponents();
-         
-        /*
-        simples.setToolTipText("Meu tootip");
-        Font font = new Font("serif", Font.BOLD | Font.ITALIC, 50);
-        simples.setFont(font);
-        simples.setForeground(Color.WHITE);
+       cadastrarCliente.setToolTipText("Cadastrar Cliente");
+       cadastrar_Vendedor.setToolTipText("Cadastrar Vendedor");
+       cadastrar_produto.setToolTipText("Cadastrar Produto");
+       efetuar_venda.setToolTipText("Efetuar Venda");
+       relatorio.setToolTipText("Relatórios");
+       verPreco.setToolTipText("Ver preço de produto");
+       sair.setToolTipText("Sair");
+      
+       Venda v = new Venda ();
         
-        Icon icone = new ImageIcon(getClass().getResource("bag.png"));   
-        
-        //JLabel imagem = new JLabel(icone, JLabel.RIGHT);
-         
-               
-        jPanel3.add(simples);
-        
-        jPanel3.add(imagem);
-        */
-        //this.setIconImage(new javax.swing.ImageIcon(getClass().getResource("bag.png")).getImage());
+       
+        Date dat;
+        dat = new Date();
+        SimpleDateFormat formato;
+        formato = new SimpleDateFormat("dd-MM-YYYY");
+        dataAtual.setText(formato.format(dat));
       
     }
 
@@ -62,11 +65,16 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
         jPanel3 = new javax.swing.JPanel();
-        simples = new javax.swing.JTextField();
-        cadastrar_produtos = new javax.swing.JButton();
-        cadastrar_vendedor = new javax.swing.JButton();
-        cadastrar_cliente1 = new javax.swing.JButton();
-        vender = new javax.swing.JButton();
+        icone = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        dataAtual = new javax.swing.JLabel();
+        cadastrarCliente = new javax.swing.JLabel();
+        cadastrar_Vendedor = new javax.swing.JLabel();
+        cadastrar_produto = new javax.swing.JLabel();
+        efetuar_venda = new javax.swing.JLabel();
+        relatorio = new javax.swing.JLabel();
+        verPreco = new javax.swing.JLabel();
+        sair = new javax.swing.JLabel();
 
         jMenu1.setText("jMenu1");
 
@@ -80,118 +88,217 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
 
-        simples.setBackground(new java.awt.Color(0, 153, 153));
-        simples.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        simples.setText("Bem Vindo(a)!");
-        simples.setBorder(null);
-        simples.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                simplesActionPerformed(evt);
+        icone.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/shopping_22120.png")); // NOI18N
+        icone.setBorder(null);
+        icone.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconeMouseClicked(evt);
             }
         });
 
-        cadastrar_produtos.setText("Cadastrar Produto");
-        cadastrar_produtos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrar_produtosActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Century Schoolbook L", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Bem-Vindo ");
 
-        cadastrar_vendedor.setText("Cadastrar Vendedor");
-        cadastrar_vendedor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrar_vendedorActionPerformed(evt);
-            }
-        });
-
-        cadastrar_cliente1.setText("Cadastrar Cliente");
-        cadastrar_cliente1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cadastrar_cliente1ActionPerformed(evt);
-            }
-        });
-
-        vender.setText("Vender");
-        vender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                venderActionPerformed(evt);
-            }
-        });
+        dataAtual.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        dataAtual.setForeground(new java.awt.Color(255, 255, 255));
+        dataAtual.setText("-/-/-");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cadastrar_vendedor)
-                    .addComponent(cadastrar_produtos)
-                    .addComponent(simples, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(vender, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cadastrar_cliente1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(159, 159, 159))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(dataAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(icone, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(35, 35, 35))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(dataAtual)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                .addComponent(icone, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(simples, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(cadastrar_produtos)
-                .addGap(18, 18, 18)
-                .addComponent(cadastrar_vendedor)
-                .addGap(18, 18, 18)
-                .addComponent(cadastrar_cliente1)
-                .addGap(18, 18, 18)
-                .addComponent(vender)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addGap(216, 216, 216)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        cadastrarCliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        cadastrarCliente.setForeground(new java.awt.Color(0, 0, 0));
+        cadastrarCliente.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/usuario.png")); // NOI18N
+        cadastrarCliente.setText("Cliente");
+        cadastrarCliente.setBorder(null);
+        cadastrarCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cadastrarClienteMouseClicked(evt);
+            }
+        });
+
+        cadastrar_Vendedor.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        cadastrar_Vendedor.setForeground(new java.awt.Color(0, 0, 0));
+        cadastrar_Vendedor.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/adicionarVendedor.png")); // NOI18N
+        cadastrar_Vendedor.setText("Vendedor");
+        cadastrar_Vendedor.setBorder(null);
+        cadastrar_Vendedor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cadastrar_VendedorMouseClicked(evt);
+            }
+        });
+
+        cadastrar_produto.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        cadastrar_produto.setForeground(new java.awt.Color(0, 0, 0));
+        cadastrar_produto.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/adicionar_produto.png")); // NOI18N
+        cadastrar_produto.setText("Produto");
+        cadastrar_produto.setBorder(null);
+        cadastrar_produto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cadastrar_produtoMouseClicked(evt);
+            }
+        });
+
+        efetuar_venda.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        efetuar_venda.setForeground(new java.awt.Color(0, 0, 0));
+        efetuar_venda.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/cesta_de_compra.png")); // NOI18N
+        efetuar_venda.setText("Vender");
+        efetuar_venda.setBorder(null);
+        efetuar_venda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                efetuar_vendaMouseClicked(evt);
+            }
+        });
+
+        relatorio.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        relatorio.setForeground(new java.awt.Color(0, 0, 0));
+        relatorio.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/saldo.png")); // NOI18N
+        relatorio.setText("Financeiro");
+        relatorio.setToolTipText("");
+        relatorio.setBorder(null);
+        relatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                relatorioMouseClicked(evt);
+            }
+        });
+
+        verPreco.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        verPreco.setText("Ver Preço");
+        verPreco.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                verPrecoMouseClicked(evt);
+            }
+        });
+
+        sair.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        sair.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        sair.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/sair.png")); // NOI18N
+        sair.setText("Sair");
+        sair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sairMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cadastrarCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cadastrar_Vendedor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cadastrar_produto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(efetuar_venda)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(relatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(verPreco)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sair)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cadastrar_Vendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cadastrar_produto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(efetuar_venda)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(relatorio)
+                                        .addComponent(verPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(sair)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void simplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simplesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_simplesActionPerformed
-
-    private void cadastrar_produtosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar_produtosActionPerformed
-        // TODO add your handling code here:
-        Produto_view pv = new Produto_view();
-        
-        pv.setVisible(true);
-    }//GEN-LAST:event_cadastrar_produtosActionPerformed
-
-    private void cadastrar_vendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar_vendedorActionPerformed
-        // TODO add your handling code here:
-        
-        Vendedor_view vd = new Vendedor_view();
+    private void cadastrar_VendedorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrar_VendedorMouseClicked
+       Vendedor_view vd = new Vendedor_view();
         vd.setVisible(true);
-    }//GEN-LAST:event_cadastrar_vendedorActionPerformed
+    }//GEN-LAST:event_cadastrar_VendedorMouseClicked
 
-    private void cadastrar_cliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar_cliente1ActionPerformed
-        // TODO add your handling code here
-        Cliente_view cv = new Cliente_view();
-        cv.setVisible(true);
-    }//GEN-LAST:event_cadastrar_cliente1ActionPerformed
-
-    private void venderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_venderActionPerformed
-        // TODO add your handling code here:
+    private void efetuar_vendaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_efetuar_vendaMouseClicked
         Vendas_view vv = new Vendas_view();
         vv.setVisible(true);
-    }//GEN-LAST:event_venderActionPerformed
+    }//GEN-LAST:event_efetuar_vendaMouseClicked
+
+    private void cadastrar_produtoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrar_produtoMouseClicked
+        Produto_view pv = new Produto_view();
+        pv.setVisible(true);
+        
+    }//GEN-LAST:event_cadastrar_produtoMouseClicked
+
+    private void iconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iconeMouseClicked
+
+    private void cadastrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrarClienteMouseClicked
+       Cliente_view cv = new Cliente_view();
+        cv.setVisible(true);
+    }//GEN-LAST:event_cadastrarClienteMouseClicked
+
+    private void relatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_relatorioMouseClicked
+        Relatorios_view rv = new Relatorios_view();
+        rv.setVisible(true);
+    }//GEN-LAST:event_relatorioMouseClicked
+
+    private void verPrecoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_verPrecoMouseClicked
+        Mostrar_produto mp = new Mostrar_produto();
+        mp.setVisible(true);
+    }//GEN-LAST:event_verPrecoMouseClicked
+
+    private void sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sairMouseClicked
+        Pagina_inicial_view pi = new Pagina_inicial_view();
+        pi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+                
+    }//GEN-LAST:event_sairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -230,16 +337,21 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cadastrar_cliente1;
-    private javax.swing.JButton cadastrar_produtos;
-    private javax.swing.JButton cadastrar_vendedor;
+    private javax.swing.JLabel cadastrarCliente;
+    private javax.swing.JLabel cadastrar_Vendedor;
+    private javax.swing.JLabel cadastrar_produto;
+    private javax.swing.JLabel dataAtual;
+    private javax.swing.JLabel efetuar_venda;
+    private javax.swing.JLabel icone;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPopupMenu jPopupMenu1;
     private java.awt.Menu menu1;
     private java.awt.Menu menu2;
     private java.awt.MenuBar menuBar1;
-    private javax.swing.JTextField simples;
-    private javax.swing.JButton vender;
+    private javax.swing.JLabel relatorio;
+    private javax.swing.JLabel sair;
+    private javax.swing.JLabel verPreco;
     // End of variables declaration//GEN-END:variables
 }

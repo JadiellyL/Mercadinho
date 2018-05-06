@@ -70,7 +70,6 @@ public class Cliente_view extends javax.swing.JFrame {
         jMenuItem1_editar_cliente = new javax.swing.JMenuItem();
         jMenuItem2_excluir_cliente = new javax.swing.JMenuItem();
         jMenuItem3_listar_cliente = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -121,6 +120,7 @@ public class Cliente_view extends javax.swing.JFrame {
         sexo_masculino.setText("Masculino");
 
         jButton_pesquisar_cpf_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton_pesquisar_cpf_cliente.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/pesquisarCli.png")); // NOI18N
         jButton_pesquisar_cpf_cliente.setText("Pesquisar");
         jButton_pesquisar_cpf_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,10 +266,12 @@ public class Cliente_view extends javax.swing.JFrame {
             }
         });
 
-        jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 25));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 35));
 
+        jMenu1.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/opcoes.png")); // NOI18N
         jMenu1.setText("Opções");
 
+        jMenuItem1_editar_cliente.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/editar_cliente.png")); // NOI18N
         jMenuItem1_editar_cliente.setText("Editar Cadastro de Cliente");
         jMenuItem1_editar_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,6 +280,7 @@ public class Cliente_view extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1_editar_cliente);
 
+        jMenuItem2_excluir_cliente.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/excluir_cliente.png")); // NOI18N
         jMenuItem2_excluir_cliente.setText("Excluir Cadastro de Cliente");
         jMenuItem2_excluir_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,6 +289,7 @@ public class Cliente_view extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2_excluir_cliente);
 
+        jMenuItem3_listar_cliente.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/listar_clientes.png")); // NOI18N
         jMenuItem3_listar_cliente.setText("Listar Clientes");
         jMenuItem3_listar_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -295,9 +299,6 @@ public class Cliente_view extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3_listar_cliente);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Sair");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -335,7 +336,7 @@ public class Cliente_view extends javax.swing.JFrame {
                     .addComponent(jLabel_dados_pessoais))
                 .addGap(26, 26, 26)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_cadastrar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_salvar_alterações, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -561,7 +562,6 @@ public class Cliente_view extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_rua_cliente;
     private javax.swing.JLabel jLabel_sexo_cliente;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1_editar_cliente;
     private javax.swing.JMenuItem jMenuItem2_excluir_cliente;

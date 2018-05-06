@@ -62,7 +62,6 @@ public class Produto_view extends javax.swing.JFrame {
         jMenuItem_editar_produto = new javax.swing.JMenuItem();
         jMenuItem_excluir_produto = new javax.swing.JMenuItem();
         jMenuItem_listar_produto = new javax.swing.JMenuItem();
-        jMenu_editar_produto = new javax.swing.JMenu();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -127,6 +126,7 @@ public class Produto_view extends javax.swing.JFrame {
         });
 
         jButton_pesquisar_produto.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton_pesquisar_produto.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/pesquisarCli.png")); // NOI18N
         jButton_pesquisar_produto.setText("Pesquisar");
         jButton_pesquisar_produto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,8 +234,10 @@ public class Produto_view extends javax.swing.JFrame {
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(100, 25));
 
+        jMenu_arquivo_produto.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/opcoes.png")); // NOI18N
         jMenu_arquivo_produto.setText("Opções");
 
+        jMenuItem_editar_produto.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/editar_produt.png")); // NOI18N
         jMenuItem_editar_produto.setText("Editar Cadastro de produto");
         jMenuItem_editar_produto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -244,6 +246,7 @@ public class Produto_view extends javax.swing.JFrame {
         });
         jMenu_arquivo_produto.add(jMenuItem_editar_produto);
 
+        jMenuItem_excluir_produto.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/excluir_produto.png")); // NOI18N
         jMenuItem_excluir_produto.setText("Excluir Cadastro de produto");
         jMenuItem_excluir_produto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,6 +256,7 @@ public class Produto_view extends javax.swing.JFrame {
         jMenu_arquivo_produto.add(jMenuItem_excluir_produto);
 
         jMenuItem_listar_produto.setBackground(new java.awt.Color(217, 205, 205));
+        jMenuItem_listar_produto.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/listar_clientes.png")); // NOI18N
         jMenuItem_listar_produto.setText("Listar Produto");
         jMenuItem_listar_produto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -262,9 +266,6 @@ public class Produto_view extends javax.swing.JFrame {
         jMenu_arquivo_produto.add(jMenuItem_listar_produto);
 
         jMenuBar1.add(jMenu_arquivo_produto);
-
-        jMenu_editar_produto.setText("Sair");
-        jMenuBar1.add(jMenu_editar_produto);
 
         setJMenuBar(jMenuBar1);
 
@@ -488,7 +489,6 @@ public class Produto_view extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem_excluir_produto;
     private javax.swing.JMenuItem jMenuItem_listar_produto;
     private javax.swing.JMenu jMenu_arquivo_produto;
-    private javax.swing.JMenu jMenu_editar_produto;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbutton_cadastrar_produto;
     private javax.swing.JLabel jlabel_codigo_produto_pesq;

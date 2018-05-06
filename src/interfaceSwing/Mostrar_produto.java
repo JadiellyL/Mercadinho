@@ -47,6 +47,7 @@ public class Mostrar_produto extends javax.swing.JFrame {
         jPanel_mostrar.setRequestFocusEnabled(false);
 
         jButton_listar_produtos.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton_listar_produtos.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/listar_clientes.png")); // NOI18N
         jButton_listar_produtos.setText("Listar");
         jButton_listar_produtos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +58,7 @@ public class Mostrar_produto extends javax.swing.JFrame {
         jTextField_codigo_prod_listar.setText("Digite o código");
 
         jButton_pesquisar_produto_Listar1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton_pesquisar_produto_Listar1.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/pesquisarCli.png")); // NOI18N
         jButton_pesquisar_produto_Listar1.setText("Pesquisar");
         jButton_pesquisar_produto_Listar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,6 +137,7 @@ public class Mostrar_produto extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable_produtos);
 
         jButton_limpar.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton_limpar.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/limpar_lista.png")); // NOI18N
         jButton_limpar.setText("Limpar");
         jButton_limpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

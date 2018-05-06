@@ -26,11 +26,17 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu_arquivo_produto">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/opcoes.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_editar_produto">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/editar_produt.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Editar Cadastro de produto"/>
               </Properties>
               <Events>
@@ -39,6 +45,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_excluir_produto">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/excluir_produto.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Excluir Cadastro de produto"/>
               </Properties>
               <Events>
@@ -50,6 +59,9 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cd" green="cd" red="d9" type="rgb"/>
                 </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/listar_clientes.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Listar Produto"/>
               </Properties>
               <Events>
@@ -57,11 +69,6 @@
               </Events>
             </MenuItem>
           </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu_editar_produto">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sair"/>
-          </Properties>
         </Menu>
       </SubComponents>
     </Menu>
@@ -348,6 +355,9 @@
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cantarell" size="18" style="1"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/pesquisarCli.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Pesquisar"/>
           </Properties>
