@@ -72,9 +72,8 @@ public class Vendedor_view extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(880, 565));
 
-        jPanel1.setBackground(new java.awt.Color(141, 170, 188));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setMaximumSize(new java.awt.Dimension(700, 706));
         jPanel1.setMinimumSize(new java.awt.Dimension(700, 706));
         jPanel1.setPreferredSize(new java.awt.Dimension(1370, 700));

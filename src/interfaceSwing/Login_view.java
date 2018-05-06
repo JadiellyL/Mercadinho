@@ -5,7 +5,7 @@
  */
 package interfaceSwing;
 
-import interfaceSwing.Pagina_inicial;
+import interfaceSwing.Pagina_inicial_view;
 import java.util.List;
 import javax.swing.JOptionPane;
 import model.Login;
@@ -130,7 +130,7 @@ public class Login_view extends javax.swing.JFrame {
                 .addContainerGap(85, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(141, 170, 188));
+        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
         jPanel2.setBorder(null);
         jPanel2.setForeground(new java.awt.Color(255, 255, 255));
 

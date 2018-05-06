@@ -74,7 +74,7 @@ public class Cliente_view extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(141, 170, 188));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setMaximumSize(new java.awt.Dimension(400, 200));
         jPanel1.setMinimumSize(new java.awt.Dimension(400, 200));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 200));

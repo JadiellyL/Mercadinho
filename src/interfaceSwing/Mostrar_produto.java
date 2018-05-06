@@ -41,7 +41,7 @@ public class Mostrar_produto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel_mostrar.setBackground(new java.awt.Color(141, 170, 188));
+        jPanel_mostrar.setBackground(new java.awt.Color(0, 153, 153));
         jPanel_mostrar.setForeground(new java.awt.Color(255, 255, 255));
         jPanel_mostrar.setPreferredSize(new java.awt.Dimension(880, 565));
         jPanel_mostrar.setRequestFocusEnabled(false);

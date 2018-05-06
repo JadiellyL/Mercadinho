@@ -78,7 +78,7 @@ public class Produto_view extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(880, 565));
 
-        jPanel1.setBackground(new java.awt.Color(141, 170, 188));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setBorder(null);
         jPanel1.setFont(new java.awt.Font("Bitstream Vera Serif", 1, 14)); // NOI18N
         jPanel1.setMaximumSize(null);
