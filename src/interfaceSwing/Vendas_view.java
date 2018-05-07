@@ -28,7 +28,12 @@ public class Vendas_view extends javax.swing.JFrame {
      */
     public Vendas_view() {
         initComponents();
-        
+        //consertar a parte de adicionar na tabela, só esta acetando um item
+        //consertar o calculo de valor total da venda
+        //colocar para aparecer o valor do troc
+        //colocar paa aparecer a mensagem de venda finalizada
+        //adicionar um jlabek na tela de vendas para informar ao usuario o que esta acontecendo
+        //ajeitar a parte de modificar preço
     }
 
     /**
@@ -61,7 +66,7 @@ public class Vendas_view extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         preco_produto_venda = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        valor_total_itens_venda = new javax.swing.JLabel();
+        valor_total_item_venda = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         total_a_pagar_venda = new javax.swing.JLabel();
@@ -75,6 +80,7 @@ public class Vendas_view extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         cod_ultima_venda = new javax.swing.JLabel();
+        informacao = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(880, 565));
@@ -149,6 +155,24 @@ public class Vendas_view extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
@@ -215,6 +239,9 @@ public class Vendas_view extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 quantidade_produto_vendaFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                quantidade_produto_vendaFocusLost(evt);
+            }
         });
 
         jLabel6.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
@@ -235,10 +262,10 @@ public class Vendas_view extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jLabel8.setText("Preço Unit.:");
 
-        valor_total_itens_venda.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
-        valor_total_itens_venda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        valor_total_itens_venda.setText("0.0");
-        valor_total_itens_venda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
+        valor_total_item_venda.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        valor_total_item_venda.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        valor_total_item_venda.setText("0.0");
+        valor_total_item_venda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
         javax.swing.GroupLayout jPanel_inf_vendaLayout = new javax.swing.GroupLayout(jPanel_inf_venda);
         jPanel_inf_venda.setLayout(jPanel_inf_vendaLayout);
@@ -277,7 +304,7 @@ public class Vendas_view extends javax.swing.JFrame {
                         .addGap(0, 99, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_inf_vendaLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(valor_total_itens_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(valor_total_item_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(111, 111, 111))
         );
         jPanel_inf_vendaLayout.setVerticalGroup(
@@ -302,7 +329,7 @@ public class Vendas_view extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(valor_total_itens_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(valor_total_item_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
 
@@ -326,6 +353,14 @@ public class Vendas_view extends javax.swing.JFrame {
         valor_recebido_venda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         valor_recebido_venda.setText("0.0");
         valor_recebido_venda.setBorder(null);
+        valor_recebido_venda.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                valor_recebido_vendaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                valor_recebido_vendaFocusLost(evt);
+            }
+        });
 
         troco_venda1.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
         troco_venda1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -401,6 +436,11 @@ public class Vendas_view extends javax.swing.JFrame {
         verPreco.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/pesquisarCli.png")); // NOI18N
         verPreco.setText("Ver Preço");
         verPreco.setBorder(null);
+        verPreco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verPrecoActionPerformed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/modificarPreco.png")); // NOI18N
@@ -415,6 +455,10 @@ public class Vendas_view extends javax.swing.JFrame {
         cod_ultima_venda.setForeground(new java.awt.Color(0, 0, 0));
         cod_ultima_venda.setText("00");
 
+        informacao.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        informacao.setForeground(new java.awt.Color(0, 153, 153));
+        informacao.setText("Informação");
+
         javax.swing.GroupLayout jPanel_plano_de_fundoLayout = new javax.swing.GroupLayout(jPanel_plano_de_fundo);
         jPanel_plano_de_fundo.setLayout(jPanel_plano_de_fundoLayout);
         jPanel_plano_de_fundoLayout.setHorizontalGroup(
@@ -423,7 +467,9 @@ public class Vendas_view extends javax.swing.JFrame {
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(nome_do_produto_venda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_plano_de_fundoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addComponent(informacao, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton_adicionar_produto)
                 .addGap(313, 313, 313))
             .addGroup(jPanel_plano_de_fundoLayout.createSequentialGroup()
@@ -470,7 +516,9 @@ public class Vendas_view extends javax.swing.JFrame {
                             .addComponent(jPanel_inf_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(26, 26, 26)
-                .addComponent(jButton_adicionar_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel_plano_de_fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton_adicionar_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(informacao, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -490,215 +538,200 @@ public class Vendas_view extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JButton_adicionar_cpf_vendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_adicionar_cpf_vendaActionPerformed
-        Venda v = new Venda();
-        VendaDao vd = new VendaDao();
-        List<Venda> lv = new VendaDao().read();
-        int lista;
-        
-        v.setCpf_cliente(cpf_cliente_venda.getText());
+        informacao.setText("CPF adicionado!");
+        Venda venda = new Venda();
+        VendaDao vendaDao = new VendaDao();
+                        
+        venda.setCpf_cliente(cpf_cliente_venda.getText());
 
-        vd.create(v);
-        pegarUltimoCod();
+        vendaDao.create(venda);
+        mostrarCodigoDaVenda();
     }//GEN-LAST:event_JButton_adicionar_cpf_vendaActionPerformed
 
     private void codigo_produto_vendaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codigo_produto_vendaFocusGained
-          
+          informacao.setText("Digite o código do produto!");
     
     }//GEN-LAST:event_codigo_produto_vendaFocusGained
 
     private void jButton_adicionar_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_adicionar_produtoActionPerformed
-        adicionarProdutos();
+        informacao.setText("Produto adicionado");
+        adicionarProdutosNaCompra();
+        
+        adicionarProdutosCompradosNaTabela();
+        
+        
     }//GEN-LAST:event_jButton_adicionar_produtoActionPerformed
 
     private void quantidade_produto_vendaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantidade_produto_vendaFocusGained
-        
+        informacao.setText("Digite a quantidade!");
     }//GEN-LAST:event_quantidade_produto_vendaFocusGained
 
     private void preco_produto_vendaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_preco_produto_vendaFocusGained
-         calculaValorDeItens();
+        
     }//GEN-LAST:event_preco_produto_vendaFocusGained
 
     private void codigo_produto_vendaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_codigo_produto_vendaFocusLost
-        carregaPreco();
+        carregarPreco();
     }//GEN-LAST:event_codigo_produto_vendaFocusLost
 
-    public void pegarUltimoCod(){
-        Venda v = new Venda();
-        List<Venda> vd = new VendaDao().read();
-        boolean achou = false;
+    private void quantidade_produto_vendaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_quantidade_produto_vendaFocusLost
+        
+        atualizarQuantidadeNoBanco();
+        calcularValorTotalDeUmItem();
+        calcularTotalDaCompra();
+    }//GEN-LAST:event_quantidade_produto_vendaFocusLost
 
-        if(vd.size() > 0){
+    private void verPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verPrecoActionPerformed
+        Mostrar_produto mp = new Mostrar_produto();
+        mp.setVisible(true);
+    }//GEN-LAST:event_verPrecoActionPerformed
+
+    private void valor_recebido_vendaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_valor_recebido_vendaFocusLost
+        informacao.setText("Compra Finalizada!");
+        calcularTroco();
+        
+    }//GEN-LAST:event_valor_recebido_vendaFocusLost
+
+    private void valor_recebido_vendaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_valor_recebido_vendaFocusGained
+        informacao.setText("Finalizando compra!");
+    }//GEN-LAST:event_valor_recebido_vendaFocusGained
+
+    public void mostrarCodigoDaVenda(){
+        
+        List<Venda> vendaDao = new VendaDao().read();
+       
+        if(vendaDao.size() > 0){
             
-        String i = Integer.toString(vd.get(vd.size()-1).getCod_venda());
-        cod_ultima_venda.setText(i);
+        String codigoDaVenda = Integer.toString(vendaDao.get(vendaDao.size()-1).getCod_venda());
+        cod_ultima_venda.setText(codigoDaVenda);
         
         }  
           
     }
+   
+    public void carregarPreco(){
     
-    public void RetornarNomeProduto(){
-    
-    List<Produto> produtos = new ProdutoDao().read();
-    Produto p = new Produto();
-    ProdutoDao pd= new ProdutoDao();
-    String nome = null;
-    String codigoDigitado;
-    codigoDigitado = codigo_produto_venda.getText();
-    boolean achou = false;
-     
-    for(int i = 0; i < produtos.size(); i++){
-        String codBanco = Integer.toString(produtos.get(i).getCod_produto());
-        if(codigoDigitado.equals(codBanco)){
-            //nome = produtos.get(i).getNome_produto();
-            nome_do_produto.setText(produtos.get(i).getNome_produto());
-        }
-  
-    }
-  
-        
-}
-    
-    public double calculaValorDeItens(){
-    double subValor;
-    int quantidade;
-    double valorUnitario;
-     
-    quantidade = Integer.parseInt(quantidade_produto_venda.getText());
-    valorUnitario = Double.parseDouble(preco_produto_venda.getText());
-    
-    subValor = (quantidade * valorUnitario);
-     
-    valor_total_itens_venda.setText(Double.toString(subValor));
-     
-    return subValor;
-     
-}
-    
-    public void carregaPreco(){
-    Produto p = new Produto();
-    List<Produto> produtos = new ProdutoDao().read();
-    ProdutoDao pd = new ProdutoDao();
-     
-    int codDigitado = Integer.parseInt(codigo_produto_venda.getText());
-    
-    for(int i = 0; i < produtos.size(); i++){
+    List<Produto> listaProdutos = new ProdutoDao().read();
          
-        if(codDigitado == produtos.get(i).getCod_produto()){
-            preco_produto_venda.setText(Double.toString(produtos.get(i).getPreco_produto()));
+    int codigoDigitado = Integer.parseInt(codigo_produto_venda.getText());
+    
+    for(int i = 0; i < listaProdutos.size(); i++){
+         
+        if(codigoDigitado == listaProdutos.get(i).getCod_produto()){
+            preco_produto_venda.setText(Double.toString(listaProdutos.get(i).getPreco_produto()));
         }
     }
     
 }
-    
-    public void subtrairquantidade(){
-    Produto p = new Produto();
-    List<Produto> produtos = new ProdutoDao().read();
-    ProdutoDao pd = new ProdutoDao();
+    public void atualizarQuantidadeNoBanco(){
+   
+    List<Produto> listaProdutos = new ProdutoDao().read();
+    ProdutoDao produtoDao = new ProdutoDao();
      
-    int codDigitado = Integer.parseInt(codigo_produto_venda.getText());
-    int quantidadeDig = Integer.parseInt(quantidade_produto_venda.getText());
-    int quantBd;
-    boolean maior = false;
+    int codigoDigitado = Integer.parseInt(codigo_produto_venda.getText());
+    int quantidadeDigitada = Integer.parseInt(quantidade_produto_venda.getText());
+    int quantidadeAnteriorNoBd;
+    boolean quantidadeIndisponivelNoBd = false;
      
-    for(int i = 0; i < produtos.size(); i++){
+    for(int i = 0; i < listaProdutos.size(); i++){
          
-        if(codDigitado == produtos.get(i).getCod_produto()){
-            quantBd = produtos.get(i).getQuantidade_produto();
-            quantBd = quantBd - quantidadeDig;
-            produtos.get(i).setQuantidade_produto(quantBd);
-            pd.update(produtos.get(i));
+        if(codigoDigitado == listaProdutos.get(i).getCod_produto()){
             
-            if(quantidadeDig > produtos.get(i).getQuantidade_produto()){
-                maior = true;
+            quantidadeAnteriorNoBd = listaProdutos.get(i).getQuantidade_produto();
+            
+            quantidadeAnteriorNoBd = quantidadeAnteriorNoBd - quantidadeDigitada;
+            listaProdutos.get(i).setQuantidade_produto(quantidadeAnteriorNoBd);
+            
+            produtoDao.update(listaProdutos.get(i));
+            
+            if(quantidadeDigitada > listaProdutos.get(i).getQuantidade_produto()){
+                quantidadeIndisponivelNoBd = true;
                 JOptionPane.showMessageDialog(null, "Quantidade maior que estoque!");
             }
         }
     }
  
 }
+        
+
+    public double calcularValorTotalDeUmItem(){
+        double valorTotalDoItem;
+        int quantidadeNaVenda;
+        double valorUnitario;
+
+        quantidadeNaVenda = Integer.parseInt(quantidade_produto_venda.getText());
+        valorUnitario = Double.parseDouble(preco_produto_venda.getText());
+
+        valorTotalDoItem = (quantidadeNaVenda * valorUnitario);
+
+        valor_total_item_venda.setText(Double.toString(valorTotalDoItem));
+
+           return valorTotalDoItem;
+    }
+    
+    
+    public void calcularTotalDaCompra(){//testsr
+        double valorDaCompra = 0;
+        double variavelAuxiliar = 0;
+        double valorTotalItem = calcularValorTotalDeUmItem();
+        String valorFinal;
+        
+        variavelAuxiliar = valorDaCompra + valorTotalItem;
+        
+        valorFinal = Double.toString(variavelAuxiliar);
+        
+        total_a_pagar_venda.setText(valorFinal);
+    }
+    
+    public void adicionarProdutosNaCompra(){
+        Venda_produto vendaProduto = new Venda_produto();
+        Venda_produtoDao vendaProdutoDao = new Venda_produtoDao();
+                
+        vendaProduto.setCod_produtoFk(Integer.parseInt(codigo_produto_venda.getText()));
+        vendaProduto.setCod_vendaFk(Integer.parseInt(cod_ultima_venda.getText()));
+        vendaProduto.setQuantidade_produtos(Integer.parseInt(quantidade_produto_venda.getText()));
+      
+        vendaProduto.setValor_unitarioproduto(Double.parseDouble(preco_produto_venda.getText()));
+       
+        vendaProduto.setTotal_venda(Double.parseDouble(valor_total_item_venda.getText()));
+        
+        vendaProdutoDao.create(vendaProduto);
+               
+    }
+    
+    public void adicionarProdutosCompradosNaTabela(){
+        List<Venda_produto> listaProdutos = new Venda_produtoDao().read();
+        
+        int codigoVendaAtual = Integer.parseInt(cod_ultima_venda.getText());
+        
+        for(int i = 0; i < listaProdutos.size(); i++){
+            int codigoVendaNoBd = listaProdutos.get(i).getCod_vendaFk();
+            if(codigoVendaAtual == codigoVendaNoBd){
+                int j = 0;
+                int k = 0;
+                lista_de_compras.setValueAt(listaProdutos.get(i).getCod_produtoFk(), j, k);
+                lista_de_compras.setValueAt(listaProdutos.get(i).getQuantidade_produtos(), j, k+1);
+                lista_de_compras.setValueAt(listaProdutos.get(i).getValor_unitarioproduto(), j,k+2);
+                lista_de_compras.setValueAt(listaProdutos.get(i).getTotal_venda(), j, k+3);
+                j++;
+                k++;
+                          
+            }
+            
+             
+        }
+    }
     
     public void calcularTroco(){
     double valorRecebido = Double.parseDouble(valor_recebido_venda.getText());
-    double valorTotalCompra = Double.parseDouble(total_a_pagar_venda.getText());
+    double valorTotalAPagar = Double.parseDouble(total_a_pagar_venda.getText());
     double troco ;
         
-    troco = (valorRecebido - valorTotalCompra);
+    troco = (valorRecebido - valorTotalAPagar);
         
-    valor_total_itens_venda.setText(Double.toString(troco));
+    troco_venda1.setText(Double.toString(troco));
         
 }
-   
-   
-    public void adicionarProdutos(){
-        
-    Venda_produto vp = new Venda_produto();
-    Venda_produtoDao vpd = new Venda_produtoDao();
-    List<Venda_produto> vpl = new Venda_produtoDao().read();
-    Venda v = new Venda();
-    ArrayList<Venda_produto> list = new ArrayList<>();
-    double valorFinal = 0;
-    double varAuxiliar = 0;
-        
-    
-        vp.setCod_produtoFk(Integer.parseInt(codigo_produto_venda.getText()));
-        vp.setCod_vendaFk(Integer.parseInt(cod_ultima_venda.getText()));
-        vp.setQuantidade_produtos(Integer.parseInt(quantidade_produto_venda.getText()));
-
-        subtrairquantidade();
-
-        vp.setValor_unitarioproduto(Double.parseDouble(valor_total_itens_venda.getText()));
-        /*
-        if(modifica_preco.isSelected()){
-
-        }
-        */ 
-
-        vp.setTotal_venda(Double.parseDouble(valor_total_itens_venda.getText())); 
-        vpd.create(vp);
-        
-        vpl.add(vp);
-        
-        
-        
-  
-    int codV = Integer.parseInt(cod_ultima_venda.getText());
-    int codP = Integer.parseInt(codigo_produto_venda.getText());
-    
-    for(int i =0 ; i < vpl.size(); i++){
-        int k = 0;
-         
-   
-            lista_de_compras.setValueAt(vpl.get(i).getCod_produtoFk(), i, k);
-            lista_de_compras.setValueAt(vpl.get(i).getQuantidade_produtos(), i, k+1);
-            lista_de_compras.setValueAt(vpl.get(i).getValor_unitarioproduto(), i, k+2);
-            lista_de_compras.setValueAt(vpl.get(i).getTotal_venda(), i, k+3);
-  
-        double subtotal = vpl.get(i).getTotal_venda();
-        valorFinal = (varAuxiliar + subtotal);
-        varAuxiliar = valorFinal;
-         k++;
-        
-                  
-    }
-        
-        total_a_pagar_venda.setText(Double.toString(varAuxiliar)); 
-    
-    
-    limparCampos();
-       
-}
-    
-    public void limparCampos(){
-        codigo_produto_venda.setText("");
-        nome_do_produto.setText("");
-        cpf_cliente_venda.setText("");
-        quantidade_produto_venda.setText("");
-        preco_produto_venda.setText("");
-        valor_total_itens_venda.setText("");
-        valor_recebido_venda.setText("");
-        valor_total_itens_venda.setText("");
-        total_a_pagar_venda.setText("");
-    }
     /**
      * @param args the command line arguments
      */
@@ -740,6 +773,7 @@ public class Vendas_view extends javax.swing.JFrame {
     private javax.swing.JTextField codigo_produto_venda;
     private javax.swing.JFormattedTextField cpf_cliente_venda;
     private javax.swing.JLabel data_da_venda;
+    private javax.swing.JLabel informacao;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton_adicionar_produto;
     private javax.swing.JLabel jLabel11;
@@ -768,7 +802,7 @@ public class Vendas_view extends javax.swing.JFrame {
     private javax.swing.JLabel total_a_pagar_venda;
     private javax.swing.JLabel troco_venda1;
     private javax.swing.JTextField valor_recebido_venda;
-    private javax.swing.JLabel valor_total_itens_venda;
+    private javax.swing.JLabel valor_total_item_venda;
     private javax.swing.JButton verPreco;
     // End of variables declaration//GEN-END:variables
 }

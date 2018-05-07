@@ -37,7 +37,7 @@ public class Venda_produtoDao{
          
             stmt.executeLargeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+            //JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao salvar!" + ex);

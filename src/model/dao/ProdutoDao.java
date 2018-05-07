@@ -103,7 +103,7 @@ public class ProdutoDao {
             
             stmt.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            //JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
             
             
         } catch (SQLException ex) {
