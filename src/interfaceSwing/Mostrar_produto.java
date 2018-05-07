@@ -11,6 +11,7 @@ import java.util.List;
 import javax.naming.spi.DirStateFactory;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
+import javax.swing.table.DefaultTableModel;
 import model.ConnectionFactory;
 import model.Produto;
 import model.dao.ProdutoDao;
@@ -42,6 +43,7 @@ public class Mostrar_produto extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel_mostrar.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel_mostrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         jPanel_mostrar.setForeground(new java.awt.Color(255, 255, 255));
         jPanel_mostrar.setPreferredSize(new java.awt.Dimension(880, 565));
         jPanel_mostrar.setRequestFocusEnabled(false);
@@ -71,56 +73,7 @@ public class Mostrar_produto extends javax.swing.JFrame {
         jTable_produtos.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         jTable_produtos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Código", "Nome", "Quantidade", "Preço", "Fornecedor"
@@ -158,7 +111,7 @@ public class Mostrar_produto extends javax.swing.JFrame {
                 .addComponent(jButton_listar_produtos, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
             .addGroup(jPanel_mostrarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
@@ -175,7 +128,7 @@ public class Mostrar_produto extends javax.swing.JFrame {
                     .addComponent(jButton_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -199,7 +152,7 @@ public class Mostrar_produto extends javax.swing.JFrame {
         List<Produto> produtos = new ProdutoDao().read();
        for(int i = 0; i < produtos.size(); i++){
           // int j = 0;
-           int k = 0;
+           /*int k = 0;
                    
             jTable_produtos.setValueAt(produtos.get(i).getCod_produto(), i, k);
             jTable_produtos.setValueAt(produtos.get(i).getNome_produto(), i, k+1);
@@ -209,7 +162,12 @@ public class Mostrar_produto extends javax.swing.JFrame {
             
             //j++;
             k++;
-            
+            */
+           DefaultTableModel val = (DefaultTableModel) jTable_produtos.getModel();
+                val.addRow(new Object []{produtos.get(i).getCod_produto(),
+                        produtos.get(i).getNome_produto(),produtos.get(i).getQuantidade_produto(),
+                         produtos.get(i).getPreco_produto(), 
+                            produtos.get(i).getFornecedor_produto()});
         }
        
         /*
@@ -244,12 +202,17 @@ public class Mostrar_produto extends javax.swing.JFrame {
                         
             if(codigoDigitado.equals(pd)){
                 achou = true;
-                jTable_produtos.setValueAt(produtos.get(i).getCod_produto(), 0, 0);
+               /* jTable_produtos.setValueAt(produtos.get(i).getCod_produto(), 0, 0);
                 jTable_produtos.setValueAt(produtos.get(i).getNome_produto(), 0, 1);
                 jTable_produtos.setValueAt(produtos.get(i).getQuantidade_produto(), 0, 2);
                 jTable_produtos.setValueAt(produtos.get(i).getPreco_produto(), 0, 3);
                 jTable_produtos.setValueAt(produtos.get(i).getFornecedor_produto(), 0, 4);
-                                
+                    */
+                DefaultTableModel val = (DefaultTableModel) jTable_produtos.getModel();
+                val.addRow(new Object []{produtos.get(i).getCod_produto(),
+                        produtos.get(i).getNome_produto(),produtos.get(i).getQuantidade_produto(),
+                         produtos.get(i).getPreco_produto(), 
+                            produtos.get(i).getFornecedor_produto()});
             } 
           
         }
@@ -262,7 +225,7 @@ public class Mostrar_produto extends javax.swing.JFrame {
          List<Produto> produtos = new ProdutoDao().read();
        for(int i = 0; i < produtos.size(); i++){
           // int j = 0;
-           int k = 0;
+           /*int k = 0;
                    
             jTable_produtos.setValueAt(" ", i, k);
             jTable_produtos.setValueAt(" ", i, k+1);
@@ -272,7 +235,10 @@ public class Mostrar_produto extends javax.swing.JFrame {
             
             //j++;
             k++;
-            
+            */
+           while (jTable_produtos.getModel().getRowCount() > 0) {  
+           ((DefaultTableModel) jTable_produtos.getModel()).removeRow(0);  
+       } 
         }
     }//GEN-LAST:event_jButton_limparActionPerformed
 

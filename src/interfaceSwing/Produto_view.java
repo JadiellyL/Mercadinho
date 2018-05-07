@@ -78,7 +78,7 @@ public class Produto_view extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(880, 565));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel1.setBorder(null);
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setFont(new java.awt.Font("Bitstream Vera Serif", 1, 14)); // NOI18N
         jPanel1.setMaximumSize(null);
         jPanel1.setName("Cadastrar Produto"); // NOI18N
@@ -166,7 +166,7 @@ public class Produto_view extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +232,7 @@ public class Produto_view extends javax.swing.JFrame {
             }
         });
 
-        jMenuBar1.setPreferredSize(new java.awt.Dimension(100, 25));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(100, 40));
 
         jMenu_arquivo_produto.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/opcoes.png")); // NOI18N
         jMenu_arquivo_produto.setText("Opções");
@@ -293,7 +293,7 @@ public class Produto_view extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)

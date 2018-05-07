@@ -74,6 +74,7 @@ public class Cliente_view extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setMaximumSize(new java.awt.Dimension(400, 200));
         jPanel1.setMinimumSize(new java.awt.Dimension(400, 200));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 200));
@@ -225,7 +226,7 @@ public class Cliente_view extends javax.swing.JFrame {
                         .addComponent(jLabel_cidade_cliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cadastro_cidade_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(19, Short.MAX_VALUE))))
+                        .addContainerGap(15, Short.MAX_VALUE))))
         );
 
         jButton_cadastrar_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
@@ -266,7 +267,7 @@ public class Cliente_view extends javax.swing.JFrame {
             }
         });
 
-        jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 35));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 40));
 
         jMenu1.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/opcoes.png")); // NOI18N
         jMenu1.setText("Opções");
@@ -336,7 +337,7 @@ public class Cliente_view extends javax.swing.JFrame {
                     .addComponent(jLabel_dados_pessoais))
                 .addGap(26, 26, 26)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_cadastrar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton_salvar_alterações, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)

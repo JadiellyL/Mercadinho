@@ -73,6 +73,7 @@ public class Vendedor_view extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel1.setMaximumSize(new java.awt.Dimension(700, 706));
         jPanel1.setMinimumSize(new java.awt.Dimension(700, 706));
         jPanel1.setPreferredSize(new java.awt.Dimension(1370, 700));
@@ -210,7 +211,7 @@ public class Vendedor_view extends javax.swing.JFrame {
             }
         });
 
-        jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 25));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 40));
 
         jMenu1.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/opcoes.png")); // NOI18N
         jMenu1.setText("Opções");
@@ -287,12 +288,12 @@ public class Vendedor_view extends javax.swing.JFrame {
                     .addComponent(jButton1_cadastrar_vendedor1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1_salvar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1_voltar_vendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(252, 252, 252)
                     .addComponent(nome_vendedor_cadastro2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(253, Short.MAX_VALUE)))
+                    .addContainerGap(238, Short.MAX_VALUE)))
         );
 
         pack();

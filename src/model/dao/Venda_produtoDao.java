@@ -124,8 +124,7 @@ public List<Venda_produto> joinVendaProduto(){
         
         
             try {
-                stmt = con.prepareStatement("SELECT Produto.nome_produto, Venda_produto.quantidade_produtos "
-                        + "Venda_produto.valor_unitarioproduto, Venda_produto.total_venda from Produto inner"
+                stmt = con.prepareStatement("SELECT Produto.nome_produto from Produto inner"
                         + " join Venda_produto on Produto.cod_produto = Venda_produto.cod_produtoFk;");
                 rs = stmt.executeQuery();
                 
@@ -134,6 +133,38 @@ public List<Venda_produto> joinVendaProduto(){
                     Produto p = new Produto();
                     
                     p.setNome_produto(rs.getString("nome_produto"));
+                                     
+                }
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null,"Erro" + ex);
+            }finally{
+                ConnectionFactory.closeConnection(con, stmt, rs);
+            }
+        
+            return vendasProd;
+    
+    
+    }
+
+public List<Venda_produto> mostrarNaTabela(){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List<Venda_produto> vendasProd = new ArrayList<>();
+        //List<Venda_produto>
+        
+        
+            try {
+                stmt = con.prepareStatement("select * from Venda_produto where cod_vendaFK = ?");
+                rs = stmt.executeQuery();
+                
+                while (rs.next()) {                    
+                    Venda_produto vp = new Venda_produto();
+                    
+                    vp.setCod_produtoFk(rs.getInt("cod_produtoFK"));
                     vp.setQuantidade_produtos(rs.getInt("quantidade_produtos"));
                     vp.setValor_unitarioproduto(rs.getDouble("valor_unitarioproduto"));
                     vp.setTotal_venda(rs.getDouble("total_venda"));
@@ -150,5 +181,7 @@ public List<Venda_produto> joinVendaProduto(){
     
     
     }
+
+
   
 }

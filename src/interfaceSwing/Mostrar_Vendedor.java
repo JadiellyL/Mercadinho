@@ -85,6 +85,7 @@ public class Mostrar_Vendedor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel_mostrar.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel_mostrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
         jPanel_mostrar.setForeground(new java.awt.Color(255, 255, 255));
         jPanel_mostrar.setPreferredSize(new java.awt.Dimension(880, 565));
         jPanel_mostrar.setRequestFocusEnabled(false);
@@ -112,56 +113,7 @@ public class Mostrar_Vendedor extends javax.swing.JFrame {
         jTable_vendedor.setFont(new java.awt.Font("Cantarell", 0, 12)); // NOI18N
         jTable_vendedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Código", "Nome"
@@ -192,7 +144,7 @@ public class Mostrar_Vendedor extends javax.swing.JFrame {
         jPanel_mostrarLayout.setHorizontalGroup(
             jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_mostrarLayout.createSequentialGroup()
-                .addContainerGap(175, Short.MAX_VALUE)
+                .addContainerGap(173, Short.MAX_VALUE)
                 .addGroup(jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_mostrarLayout.createSequentialGroup()
                         .addComponent(codigo_pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -218,7 +170,7 @@ public class Mostrar_Vendedor extends javax.swing.JFrame {
                     .addComponent(codigo_pesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -245,13 +197,16 @@ public class Mostrar_Vendedor extends javax.swing.JFrame {
        for(int i = 0; i < vendedores.size(); i++){
           // int j = 0;
            int k = 0;
-                   
+            /*       
             jTable_vendedor.setValueAt(vendedores.get(i).getCod_vendedor(), i, k);
             jTable_vendedor.setValueAt(vendedores.get(i).getNome_vendedor(), i, k+1);
             
             //j++;
             //jTable_clientes.setAutoCreateRowSorter(rootPaneCheckingEnabled);
-            k++;
+            k++;*/
+            DefaultTableModel val = (DefaultTableModel) jTable_vendedor.getModel();
+                val.addRow(new Object []{vendedores.get(i).getCod_vendedor(),
+                        vendedores.get(i).getNome_vendedor()});
             
         }
       
@@ -266,14 +221,19 @@ public class Mostrar_Vendedor extends javax.swing.JFrame {
         boolean achou = false;
     
        for(int i = 0; i < vendedores.size(); i++){
-          
+          int k = 0;
             String Codvend = Integer.toString(vendedores.get(i).getCod_vendedor());
-                        
+            
+            
             if(codDigitado.equals(Codvend)){
              achou = true;
-            
-            jTable_vendedor.setValueAt(vendedores.get(i).getNome_vendedor(), 0, 0);
-                          
+            /*
+            jTable_vendedor.setValueAt(vendedores.get(i).getCod_vendedor(), i, k);
+            jTable_vendedor.setValueAt(vendedores.get(i).getNome_vendedor(), i, k+1);
+               k++;*/
+               DefaultTableModel val = (DefaultTableModel) jTable_vendedor.getModel();
+                val.addRow(new Object []{vendedores.get(i).getCod_vendedor(),
+                        vendedores.get(i).getNome_vendedor()});
             }           
              
         
@@ -291,14 +251,17 @@ public class Mostrar_Vendedor extends javax.swing.JFrame {
         List<Vendedor> vendedores = new VendedorDao().read();
        for(int i = 0; i < vendedores.size(); i++){
           // int j = 0;
-           int k = 0;
+          /* int k = 0;
                    
             jTable_vendedor.setValueAt(" ", i, k);
             jTable_vendedor.setValueAt(" ", i, k+1);
             
             //j++;
             //jTable_clientes.setAutoCreateRowSorter(rootPaneCheckingEnabled);
-            k++;
+            k++;*/
+          while (jTable_vendedor.getModel().getRowCount() > 0) {  
+           ((DefaultTableModel) jTable_vendedor.getModel()).removeRow(0);  
+       } 
             
         }
 		
