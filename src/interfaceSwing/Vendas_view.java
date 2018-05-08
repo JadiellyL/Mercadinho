@@ -677,11 +677,22 @@ public class Vendas_view extends javax.swing.JFrame {
     }//GEN-LAST:event_lista_de_comprasKeyReleased
 
     private void jButton_Finalizar_compraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_Finalizar_compraActionPerformed
-        VendaDao vendas = new VendaDao();
+       List<Venda> listaVenda = new VendaDao().read();
+       VendaDao vendas = new VendaDao();
         Venda venda = new Venda();
+        String codigoDigitado = cod_ultima_venda.getText();
+        
+        for(int i = 0; i < listaVenda.size(); i++){
+            String codigoVendaBd = Integer.toString(listaVenda.get(i).getCod_venda());
+            if(codigoDigitado.equals(codigoVendaBd)){
+                listaVenda.get(i).setValorTotal_venda(Double.parseDouble(total_a_pagar_venda.getText()));
+                vendas.update(listaVenda.get(i));
+            }
+        }
+        
                             
-        venda.setValorTotal_venda(Double.parseDouble(total_a_pagar_venda.getText()));
-        vendas.update(venda);
+        
+        
     }//GEN-LAST:event_jButton_Finalizar_compraActionPerformed
 
     public void mostrarCodigoDaVenda(){
