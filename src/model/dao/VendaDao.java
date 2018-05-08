@@ -29,13 +29,13 @@ public class VendaDao {
         
         try {
             stmt = con.prepareStatement("INSERT INTO Venda(cod_venda,data_venda, "
-                    + "cpf_clienteFk, valorTotal_venda, valorPago_pelo_cliente) VALUES (?, ?, ?, ?, ?)");
+                    + "cpf_clienteFk, valorTotal_venda, venda_aprazo_avista) VALUES (?, ?, ?, ?, ?)");
             
             stmt.setInt(1,v.getCod_venda());
             stmt.setDate(2, v.getData_venda());
             stmt.setString(3,v.getCpf_cliente());
             stmt.setDouble(4, v.getValorTotal_venda());
-            stmt.setDouble(5, v.getValorPago_pelo_cliente());
+            stmt.setString(5, v.getVenda_aprazo_avista());
                         
             stmt.executeLargeUpdate();
             
@@ -70,7 +70,7 @@ public class VendaDao {
                     v.setData_venda(rs.getDate("data_venda"));
                     v.setCpf_cliente(rs.getString("cpf_clienteFk"));
                     v.setValorTotal_venda(rs.getDouble("valorTotal_venda"));
-                    v.setValorPago_pelo_cliente(rs.getDouble("valorPago_pelo_cliente"));
+                    v.setVenda_aprazo_avista(rs.getString("venda_aprazo_avista"));
                                        
                     
                     vendas.add(v);
@@ -95,12 +95,12 @@ public class VendaDao {
         
         try {
             stmt = con.prepareStatement("UPDATE Venda SET data_venda = ?, cpf_clienteFk = ?, valorTotal_venda = ?,"
-                    + "valorPago_pelo_cliente = ?  WHERE cod_venda = ?");
+                    + "venda_aprazo_avista = ?  WHERE cod_venda = ?");
                         
             stmt.setDate(1, v.getData_venda());
             stmt.setString(2, v.getCpf_cliente());
             stmt.setDouble(3, v.getValorTotal_venda());
-            stmt.setDouble(4, v.getValorPago_pelo_cliente());
+            stmt.setString(4, v.getVenda_aprazo_avista());
             stmt.setInt(5, v.getCod_venda());
             
             

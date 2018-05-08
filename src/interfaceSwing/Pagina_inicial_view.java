@@ -65,7 +65,6 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
         menu1 = new java.awt.Menu();
         menu2 = new java.awt.Menu();
         jPanel3 = new javax.swing.JPanel();
-        icone = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         dataAtual = new javax.swing.JLabel();
         cadastrarCliente = new javax.swing.JLabel();
@@ -89,17 +88,10 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 153, 153));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
 
-        icone.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/shopping_22120.png")); // NOI18N
-        icone.setBorder(null);
-        icone.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                iconeMouseClicked(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Century Schoolbook L", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Bem-Vindo ");
+        jLabel1.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/icone_jade.png")); // NOI18N
+        jLabel1.setText("Jade Development System");
 
         dataAtual.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         dataAtual.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,30 +101,23 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(dataAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dataAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(icone, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(35, 35, 35))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(110, 110, 110)
                 .addComponent(dataAtual)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
-                .addComponent(icone, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(216, 216, 216)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
         );
 
         cadastrarCliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
@@ -271,10 +256,6 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cadastrar_produtoMouseClicked
 
-    private void iconeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_iconeMouseClicked
-
     private void cadastrarClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrarClienteMouseClicked
        Cliente_view cv = new Cliente_view();
         cv.setVisible(true);
@@ -339,7 +320,6 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
     private javax.swing.JLabel cadastrar_produto;
     private javax.swing.JLabel dataAtual;
     private javax.swing.JLabel efetuar_venda;
-    private javax.swing.JLabel icone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel3;

@@ -11,14 +11,14 @@ public class Venda {
     private Date data_venda;
     private String cpf_cliente;
     private double valorTotal_venda;
-    private double valorPago_pelo_cliente;
+    private String venda_aprazo_avista;
 
-    public Venda(int cod_venda, Date data_venda, String cpf_cliente, double valorTotal_venda, double valorPago_pelo_cliente) {
+    public Venda(int cod_venda, Date data_venda, String cpf_cliente, double valorTotal_venda, String venda_aprazo_avista) {
         this.cod_venda = cod_venda;
         this.data_venda = data_venda;
         this.cpf_cliente = cpf_cliente;
         this.valorTotal_venda = valorTotal_venda;
-        this.valorPago_pelo_cliente = valorPago_pelo_cliente;
+        this.venda_aprazo_avista = venda_aprazo_avista;
     }
     
     
@@ -64,15 +64,15 @@ public class Venda {
         this.valorTotal_venda = valorTotal_venda;
     }
 
-    public double getValorPago_pelo_cliente() {
-        return valorPago_pelo_cliente;
+    public String getVenda_aprazo_avista() {
+        return venda_aprazo_avista;
     }
 
-    public void setValorPago_pelo_cliente(double valorPago_pelo_cliente) {
-        this.valorPago_pelo_cliente = valorPago_pelo_cliente;
+    public void setVenda_aprazo_avista(String venda_aprazo_avista) {
+        this.venda_aprazo_avista = venda_aprazo_avista;
     }
-    
-    
+
+   
 
    
  

@@ -12,7 +12,7 @@ import model.Login;
 import model.Vendedor;
 import model.dao.LoginDao;
 import model.dao.VendedorDao;
-import view.Inicio;
+
 
 /**
  *

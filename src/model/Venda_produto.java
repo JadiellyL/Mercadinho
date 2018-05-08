@@ -16,8 +16,8 @@ public class Venda_produto extends Venda{
     private double valor_unitarioproduto;
     private double total_venda;
 
-    public Venda_produto(int cod_produtoFk, int cod_vendaFk, int quantidade_produtos, double valor_unitarioproduto, double total_venda, int cod_venda, Date data_venda, String cpf_cliente, double valorTotal_venda, double valorPago_pelo_cliente) {
-        super(cod_venda, data_venda, cpf_cliente, valorTotal_venda, valorPago_pelo_cliente);
+    public Venda_produto(int cod_produtoFk, int cod_vendaFk, int quantidade_produtos, double valor_unitarioproduto, double total_venda, int cod_venda, Date data_venda, String cpf_cliente, double valorTotal_venda, String venda_aprazo_avista) {
+        super(cod_venda, data_venda, cpf_cliente, valorTotal_venda, venda_aprazo_avista);
         this.cod_produtoFk = cod_produtoFk;
         this.cod_vendaFk = cod_vendaFk;
         this.quantidade_produtos = quantidade_produtos;
