@@ -5,6 +5,15 @@
  */
 package interfaceSwing;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import model.Cliente;
+import model.Produto;
+import model.Venda;
+import model.dao.ClienteDao;
+import model.dao.ProdutoDao;
+import model.dao.VendaDao;
+
 /**
  *
  * @author jade
@@ -16,6 +25,7 @@ public class Relatorios_view extends javax.swing.JFrame {
      */
     public Relatorios_view() {
         initComponents();
+        
     }
 
     /**
@@ -29,48 +39,27 @@ public class Relatorios_view extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        clientes_em_debito = new javax.swing.JTable();
+        JButton_listar_clientes = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        valorAPrazo = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        valorAVista = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        produtosEmFalta = new javax.swing.JTable();
+        listarProdutos = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        clientes_em_debito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "Cliente", "Valor"
@@ -84,11 +73,68 @@ public class Relatorios_view extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-        }
+        jScrollPane1.setViewportView(clientes_em_debito);
+
+        JButton_listar_clientes.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        JButton_listar_clientes.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/listar_clientes.png")); // NOI18N
+        JButton_listar_clientes.setText("Listar");
+        JButton_listar_clientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButton_listar_clientesActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Valor em Caixa:");
+
+        jLabel3.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Valor a Receber:");
+
+        valorAPrazo.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        valorAPrazo.setForeground(new java.awt.Color(255, 255, 255));
+        valorAPrazo.setText("0.0");
+        valorAPrazo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
+
+        jButton1.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        jButton1.setText("Ver");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        valorAVista.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        valorAVista.setForeground(new java.awt.Color(255, 255, 255));
+        valorAVista.setText("0.0");
+        valorAVista.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(230, 230, 230)));
+
+        produtosEmFalta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cód. Prod.", "Nome", "Qtd."
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(produtosEmFalta);
+
+        listarProdutos.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        listarProdutos.setText("Listar");
+        listarProdutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listarProdutosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,34 +142,63 @@ public class Relatorios_view extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 831, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(valorAVista))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(valorAPrazo, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(listarProdutos))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 831, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JButton_listar_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(321, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(valorAVista))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(valorAPrazo))
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(listarProdutos)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(JButton_listar_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82))
+                .addGap(41, 41, 41))
         );
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 40));
 
-        jMenu1.setText("File");
-
-        jMenuItem1.setText("Relatório de Caixa");
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Relatório de Vendas Fiado");
-        jMenu1.add(jMenuItem2);
+        jMenu1.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/opcoes.png")); // NOI18N
+        jMenu1.setText("Opções");
 
         jMenuItem3.setText("Relatório de estoque");
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -141,9 +216,103 @@ public class Relatorios_view extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void JButton_listar_clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButton_listar_clientesActionPerformed
+        listarClientesEmDebito();
+    }//GEN-LAST:event_JButton_listar_clientesActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        verDinheiroEmCaixa();
+        verDinheiroParaReceber();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void listarProdutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarProdutosActionPerformed
+        listarProdutosEmFalta();
+    }//GEN-LAST:event_listarProdutosActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    public void listarClientesEmDebito(){
+        List<Venda> vendas = new VendaDao().read();
+        
+       for(int i = 0; i < vendas.size(); i++){
+           String tipoVenda = vendas.get(i).getVenda_aprazo_avista();
+           String aprazo = "À Prazo";
+           if((tipoVenda.equals(aprazo))){
+           DefaultTableModel val = (DefaultTableModel) clientes_em_debito.getModel();
+                val.addRow(new Object []{vendas.get(i).getCpf_cliente(),
+                        vendas.get(i).getValorTotal_venda()
+                        });
+            
+           }
+       }
+    }
+    
+     public void verDinheiroEmCaixa(){ 
+        List<Venda> vendas = new VendaDao().read();
+        double valorDaVenda = 0;
+        double valorTotal = 0;
+        double VariavelAuxiliar = 0;
+        
+       for(int i = 0; i < vendas.size(); i++){
+           String tipoVenda = vendas.get(i).getVenda_aprazo_avista();
+           String avista = "À Vista";
+         
+         
+           if((tipoVenda.equals(avista))){
+               valorDaVenda = vendas.get(i).getValorTotal_venda();
+               valorTotal = VariavelAuxiliar + valorDaVenda;
+               
+           }
+           VariavelAuxiliar = valorTotal;
+           valorAVista.setText(Double.toString(VariavelAuxiliar));
+
+       }
+       
+              
+    }
+     
+     public void listarProdutosEmFalta(){
+       List<Produto> produtos = new ProdutoDao().read();
+        
+       for(int i = 0; i < produtos.size(); i++){
+           int quantidadeBd = produtos.get(i).getQuantidade_produto();
+           
+           if((quantidadeBd < 1)){
+           DefaultTableModel val = (DefaultTableModel) produtosEmFalta.getModel();
+                val.addRow(new Object []{produtos.get(i).getCod_produto(),
+                    produtos.get(i).getNome_produto(),
+                        produtos.get(i).getQuantidade_produto()
+                        });
+            
+           }
+       }
+     }
+     
+     public void verDinheiroParaReceber(){ 
+        List<Venda> vendas = new VendaDao().read();
+        double valorDaVenda = 0;
+        double valorTotal = 0;
+        double VariavelAuxiliar = 0;
+        
+       for(int i = 0; i < vendas.size(); i++){
+           String tipoVenda = vendas.get(i).getVenda_aprazo_avista();
+           String avista = "À Prazo";
+         
+         
+           if((tipoVenda.equals(avista))){
+               valorDaVenda = vendas.get(i).getValorTotal_venda();
+               valorTotal = VariavelAuxiliar + valorDaVenda;
+               
+           }
+           VariavelAuxiliar = valorTotal;
+           valorAPrazo.setText(Double.toString(VariavelAuxiliar));
+
+       }
+       
+              
+    }
+     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -177,14 +346,20 @@ public class Relatorios_view extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JButton_listar_clientes;
+    private javax.swing.JTable clientes_em_debito;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton listarProdutos;
+    private javax.swing.JTable produtosEmFalta;
+    private javax.swing.JLabel valorAPrazo;
+    private javax.swing.JLabel valorAVista;
     // End of variables declaration//GEN-END:variables
 }
