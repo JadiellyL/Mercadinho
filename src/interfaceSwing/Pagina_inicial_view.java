@@ -12,6 +12,7 @@ import java.awt.Toolkit;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -39,14 +40,16 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
        verPreco.setToolTipText("Ver preço de produto");
        sair.setToolTipText("Sair");
       
-       Venda v = new Venda ();
+       //Venda v = new Venda ();
         
-       
-        Date dat;
-        dat = new Date();
-        SimpleDateFormat formato;
-        formato = new SimpleDateFormat("dd-MM-YYYY");
-        dataAtual.setText(formato.format(dat));
+       try{
+			Date d = GregorianCalendar.getInstance().getTime();
+			SimpleDateFormat format = new SimpleDateFormat();
+			dataAtual.setText(format.format(d));
+		}catch (Exception e) {
+			
+		}
+	 
       
     }
 
@@ -93,29 +96,29 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/icone_jade.png")); // NOI18N
         jLabel1.setText("Jade Development System");
 
-        dataAtual.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
+        dataAtual.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
         dataAtual.setForeground(new java.awt.Color(255, 255, 255));
+        dataAtual.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         dataAtual.setText("-/-/-");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(dataAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 782, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(dataAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 856, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
+                .addGap(20, 20, 20)
                 .addComponent(dataAtual)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 455, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(25, 25, 25))
         );
@@ -233,8 +236,7 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
                             .addComponent(sair, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(relatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

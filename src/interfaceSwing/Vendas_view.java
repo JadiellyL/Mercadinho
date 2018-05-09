@@ -6,9 +6,12 @@
 package interfaceSwing;
 
 import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Login;
@@ -38,6 +41,12 @@ public class Vendas_view extends javax.swing.JFrame {
         //ajeitar a parte de modificar preço
         //inserir data na venda
         mostrarVendedorDaVenda();
+        
+        java.util.Date dat;
+        dat = new java.util.Date();
+        SimpleDateFormat formato;
+        formato = new SimpleDateFormat("dd-MM-YYYY");
+        data_da_venda.setText(formato.format(dat));
         
        
     }
@@ -87,7 +96,6 @@ public class Vendas_view extends javax.swing.JFrame {
         jPanel8 = new javax.swing.JPanel();
         jButton_adicionar_produto = new javax.swing.JButton();
         verPreco = new javax.swing.JButton();
-        modificar_preco_para_a_compra = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         cod_ultima_venda = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -156,10 +164,10 @@ public class Vendas_view extends javax.swing.JFrame {
                 .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel_Topo_telaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel_Topo_telaLayout.createSequentialGroup()
-                        .addGap(542, 542, 542)
+                        .addGap(501, 501, 501)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(data_da_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(data_da_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_Topo_telaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -483,16 +491,6 @@ public class Vendas_view extends javax.swing.JFrame {
             }
         });
 
-        modificar_preco_para_a_compra.setFont(new java.awt.Font("Cantarell", 1, 15)); // NOI18N
-        modificar_preco_para_a_compra.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/modificarPreco.png")); // NOI18N
-        modificar_preco_para_a_compra.setText("Modificar Preço");
-        modificar_preco_para_a_compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        modificar_preco_para_a_compra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificar_preco_para_a_compraActionPerformed(evt);
-            }
-        });
-
         jLabel16.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Venda:");
@@ -534,10 +532,8 @@ public class Vendas_view extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_plano_de_fundoLayout.createSequentialGroup()
                 .addComponent(verPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(modificar_preco_para_a_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(213, 213, 213)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cod_ultima_venda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -577,7 +573,6 @@ public class Vendas_view extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_plano_de_fundoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(verPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modificar_preco_para_a_compra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16)
                     .addComponent(cod_ultima_venda)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -638,7 +633,19 @@ public class Vendas_view extends javax.swing.JFrame {
             venda.setVenda_aprazo_avista(avista.getText());
         }
         //venda.setValorTotal_venda(Double.parseDouble(total_a_pagar_venda.getText()));
+        java.util.Date dat;
+        dat = new java.util.Date();
+        SimpleDateFormat formato;
+        formato = new SimpleDateFormat("dd-MM-YYYY");
+        data_da_venda.setText(formato.format(dat));
+        java.sql.Date data = null;
+        try {
+            data = new java.sql.Date(formato.parse(data_da_venda.getText()).getTime());
+        } catch (ParseException ex) {
+            Logger.getLogger(Vendas_view.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
+        venda.setData_venda(data);
         vendaDao.create(venda);
         mostrarCodigoDaVenda();
     }//GEN-LAST:event_JButton_adicionar_cpf_vendaActionPerformed
@@ -703,11 +710,6 @@ public class Vendas_view extends javax.swing.JFrame {
         informacao.setText("Finalizando compra!");
         
     }//GEN-LAST:event_valor_recebido_vendaFocusGained
-
-    private void modificar_preco_para_a_compraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar_preco_para_a_compraActionPerformed
-        ///ver depois
-      
-    }//GEN-LAST:event_modificar_preco_para_a_compraActionPerformed
 
     private void lista_de_comprasKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lista_de_comprasKeyReleased
         // TODO add your handling code here:
@@ -972,7 +974,6 @@ public class Vendas_view extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_plano_de_fundo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable lista_de_compras;
-    private javax.swing.JButton modificar_preco_para_a_compra;
     private javax.swing.JLabel nome_do_produto;
     private javax.swing.JLabel nome_do_produto_venda;
     private javax.swing.JTextField preco_produto_venda;
