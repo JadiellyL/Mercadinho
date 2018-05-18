@@ -149,7 +149,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="2" name="/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/icone_jade.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Jade Development System"/>
+            <Property name="text" type="java.lang.String" value="Jade Development Systems"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="dataAtual">

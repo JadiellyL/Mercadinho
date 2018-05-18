@@ -96,12 +96,13 @@ public class Venda_produtoDao{
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("DELETE FROM Venda WHERE cod_venda=?");
-            stmt.setInt(1, v.getCod_venda());
+            stmt = con.prepareStatement("DELETE FROM Venda_produto WHERE cod_vendaFk = ?");
+            stmt.setInt(1, v.getCod_vendaFk());
+            //stmt.setInt(2, v.getCod_produtoFk());
            
             stmt.executeLargeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Excluído!");
+            
             
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao excluir!" + ex);

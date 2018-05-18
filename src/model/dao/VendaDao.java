@@ -106,7 +106,7 @@ public class VendaDao {
             
             stmt.executeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            
             
             
         } catch (SQLException ex) {

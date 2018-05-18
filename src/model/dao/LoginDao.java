@@ -25,19 +25,20 @@ public void create(Login l){
         
         try {
             stmt = con.prepareStatement("INSERT INTO Login "
-                    + "(cod_login,senha_login,cod_vendedorFk) "
-                    + "VALUES (?, ?, ?)");
+                    + "(cod_login,senha_login,cod_vendedorFk, data_login) "
+                    + "VALUES (?, ?, ?, ?)");
             
             stmt.setInt(1, l.getCod_login());
             stmt.setString(2, l.getSenha_vendedor());
             stmt.setInt(3, l.getCod_vendedorFk());
+            stmt.setDate(4, l.getData_login());
                         
             stmt.executeLargeUpdate();
             
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+            //JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao salvar!" + ex);
+            JOptionPane.showMessageDialog(null, "Erro em usuário ou senha!" + ex);
         }finally{
             
             ConnectionFactory.closeConnection(con, stmt);
@@ -66,6 +67,7 @@ public List<Login> read(){
                     log.setCod_login(rs.getInt("cod_login"));
                     log.setSenha_vendedor(rs.getString("senha_login"));
                     log.setCod_vendedorFk(rs.getInt("cod_vendedorFk"));
+                    log.setData_login(rs.getDate("data_login"));
                                         
                     login.add(log);
                     

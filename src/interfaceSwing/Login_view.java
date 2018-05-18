@@ -6,7 +6,13 @@
 package interfaceSwing;
 
 import interfaceSwing.Pagina_inicial_view;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Login;
 import model.Vendedor;
@@ -25,6 +31,12 @@ public class Login_view extends javax.swing.JFrame {
      */
     public Login_view() {
         initComponents();
+        
+        java.util.Date dat;
+        dat = new java.util.Date();
+        SimpleDateFormat formato;
+        formato = new SimpleDateFormat("dd-MM-YYYY");
+        data_login.setText(formato.format(dat));
     }
 
     /**
@@ -40,6 +52,7 @@ public class Login_view extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        data_login = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -68,6 +81,10 @@ public class Login_view extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
         jLabel1.setText("Login");
 
+        data_login.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
+        data_login.setForeground(new java.awt.Color(0, 0, 0));
+        data_login.setText("_/_/_");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -75,21 +92,27 @@ public class Login_view extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
+                        .addGap(47, 47, 47)
                         .addComponent(jLabel6))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(112, 112, 112)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(data_login, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(jLabel6)
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addGap(13, 13, 13)
+                .addComponent(data_login)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
@@ -180,7 +203,7 @@ public class Login_view extends javax.swing.JFrame {
                     .addComponent(jLabel7))
                 .addGap(69, 69, 69)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -215,7 +238,22 @@ public class Login_view extends javax.swing.JFrame {
       l.setSenha_vendedor(senha_vendedor_login.getText());
       
         Pagina_inicial_view pi = new Pagina_inicial_view();
-      
+        
+        java.util.Date dat;
+        dat = new java.util.Date();
+        SimpleDateFormat formato;
+        formato = new SimpleDateFormat("dd-MM-YYYY");
+        data_login.setText(formato.format(dat));
+        java.sql.Date data = null;
+        
+        try {
+            
+            data = new java.sql.Date(formato.parse(data_login.getText()).getTime());
+        } catch (ParseException ex) {
+            
+        }
+        l.setData_login(data);
+        
       for(int i = 0; i < vl.size(); i++){
           if((codigoDigitado == vl.get(i).getCod_vendedor()) && senhaDigitada.equals(vl.get(i).getSenha_vendedor())){
               achou = true;
@@ -223,10 +261,10 @@ public class Login_view extends javax.swing.JFrame {
               pi.setVisible(achou);
           }
             achou = false;
-                      
+             
       }
           
-      
+      //JOptionPane.showMessageDialog(null, "Senha ou login errado!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -266,6 +304,7 @@ public class Login_view extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField codigo_vendedor_login;
+    private javax.swing.JLabel data_login;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

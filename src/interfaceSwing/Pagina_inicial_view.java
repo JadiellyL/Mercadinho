@@ -94,7 +94,7 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Century Schoolbook L", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/icone_jade.png")); // NOI18N
-        jLabel1.setText("Jade Development System");
+        jLabel1.setText("Jade Development Systems");
 
         dataAtual.setFont(new java.awt.Font("Cantarell", 1, 24)); // NOI18N
         dataAtual.setForeground(new java.awt.Color(255, 255, 255));

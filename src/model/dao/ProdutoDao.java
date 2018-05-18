@@ -24,15 +24,15 @@ public class ProdutoDao {
         
         try {
             stmt = con.prepareStatement("INSERT INTO Produto "
-                    + "(cod_produto,nome_produto,quatidade_produto, "
-                    + "preco_produto, fornecedor_produto) "
+                    + "(cod_produto,quatidade_produto, "
+                    + "preco_produto, fornecedor_produto,nome_produto) "
                     + "VALUES (?, ?, ?, ?, ?)");
             
             stmt.setInt(1, p.getCod_produto());
-            stmt.setString(2, p.getNome_produto());
-            stmt.setInt(3, p.getQuantidade_produto());
-            stmt.setDouble(4, p.getPreco_produto());
-            stmt.setString(5, p.getFornecedor_produto());
+            stmt.setInt(2, p.getQuantidade_produto());
+            stmt.setDouble(3, p.getPreco_produto());
+            stmt.setString(4, p.getFornecedor_produto());
+            stmt.setString(5, p.getNome_produto());
             
             stmt.executeLargeUpdate();
             
@@ -66,10 +66,11 @@ public class ProdutoDao {
                 while (rs.next()) {                    
                     Produto produto = new Produto();
                     produto.setCod_produto(rs.getInt("cod_produto"));
-                    produto.setNome_produto(rs.getString("nome_produto"));
                     produto.setQuantidade_produto(rs.getInt("quatidade_produto"));
                     produto.setPreco_produto(rs.getDouble("preco_produto"));
                     produto.setFornecedor_produto(rs.getString("fornecedor_produto"));
+                    produto.setNome_produto(rs.getString("nome_produto"));
+                    
                     
                     produtos.add(produto);
                     
@@ -94,12 +95,12 @@ public class ProdutoDao {
         try {
             stmt = con.prepareStatement("UPDATE Produto SET nome_produto = ?, quatidade_produto = ?, preco_produto = ?, fornecedor_produto = ? WHERE cod_produto = ?");
                         
-            stmt.setString(1, p.getNome_produto());
-            stmt.setInt(2, p.getQuantidade_produto());
-            stmt.setDouble(3, p.getPreco_produto());
-            stmt.setString(4, p.getFornecedor_produto());
-            stmt.setInt(5, p.getCod_produto());
             
+            stmt.setInt(1, p.getQuantidade_produto());
+            stmt.setDouble(2, p.getPreco_produto());
+            stmt.setString(3, p.getFornecedor_produto());
+            stmt.setInt(4, p.getCod_produto());
+            stmt.setString(5, p.getNome_produto());
             
             stmt.executeUpdate();
             
@@ -160,7 +161,7 @@ public class ProdutoDao {
                     
                     produto.setNome_produto(rs.getString("nome_produto"));
                     
-                    produtos.add(produto);
+                    //produtos.add(produto);
                     
                 }
                 
