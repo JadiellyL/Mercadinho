@@ -595,7 +595,8 @@ public class Vendas_view extends javax.swing.JFrame {
         //data_da_venda.setText(formato.format(dat));
         //java.sql.Date data = null;
         try {
-            dat = new java.sql.Date(formato.parse(data_da_venda.getText()).getTime());
+           dat = new java.sql.Date(formato.parse(data_da_venda.getText()).getTime());
+            
         } catch (ParseException ex) {
             Logger.getLogger(Vendas_view.class.getName()).log(Level.SEVERE, null, ex);
         }
