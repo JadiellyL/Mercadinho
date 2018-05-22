@@ -10,13 +10,13 @@ import java.sql.Date;
 public class Venda_produto extends Venda{
     
 
-    private int cod_produtoFk;
+    private long cod_produtoFk;
     private int cod_vendaFk;
     private int quantidade_produtos;
     private double valor_unitarioproduto;
     private double total_venda;
 
-    public Venda_produto(int cod_produtoFk, int cod_vendaFk, int quantidade_produtos, double valor_unitarioproduto, double total_venda, int cod_venda, Date data_venda, String cpf_cliente, double valorTotal_venda, String venda_aprazo_avista) {
+    public Venda_produto(long cod_produtoFk, int cod_vendaFk, int quantidade_produtos, double valor_unitarioproduto, double total_venda, int cod_venda, Date data_venda, String cpf_cliente, double valorTotal_venda, String venda_aprazo_avista) {
         super(cod_venda, data_venda, cpf_cliente, valorTotal_venda, venda_aprazo_avista);
         this.cod_produtoFk = cod_produtoFk;
         this.cod_vendaFk = cod_vendaFk;
@@ -30,13 +30,16 @@ public class Venda_produto extends Venda{
         
     }
 
-    public int getCod_produtoFk() {
+    public long getCod_produtoFk() {
         return cod_produtoFk;
     }
 
-    public void setCod_produtoFk(int cod_produtoFk) {
+    public void setCod_produtoFk(long cod_produtoFk) {
         this.cod_produtoFk = cod_produtoFk;
     }
+
+    
+    
 
     public int getCod_vendaFk() {
         return cod_vendaFk;

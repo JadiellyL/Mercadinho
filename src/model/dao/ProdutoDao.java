@@ -23,12 +23,13 @@ public class ProdutoDao {
         PreparedStatement stmt = null;
         
         try {
+            
             stmt = con.prepareStatement("INSERT INTO Produto "
-                    + "(cod_produto,quatidade_produto, "
+                    + "(cod_produto,quantidade_produto, "
                     + "preco_produto, fornecedor_produto,nome_produto) "
                     + "VALUES (?, ?, ?, ?, ?)");
             
-            stmt.setInt(1, p.getCod_produto());
+            stmt.setLong(1, p.getCod_produto());
             stmt.setInt(2, p.getQuantidade_produto());
             stmt.setDouble(3, p.getPreco_produto());
             stmt.setString(4, p.getFornecedor_produto());
@@ -65,8 +66,8 @@ public class ProdutoDao {
                 
                 while (rs.next()) {                    
                     Produto produto = new Produto();
-                    produto.setCod_produto(rs.getInt("cod_produto"));
-                    produto.setQuantidade_produto(rs.getInt("quatidade_produto"));
+                    produto.setCod_produto(rs.getLong("cod_produto"));
+                    produto.setQuantidade_produto(rs.getInt("quantidade_produto"));
                     produto.setPreco_produto(rs.getDouble("preco_produto"));
                     produto.setFornecedor_produto(rs.getString("fornecedor_produto"));
                     produto.setNome_produto(rs.getString("nome_produto"));
@@ -93,14 +94,14 @@ public class ProdutoDao {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("UPDATE Produto SET nome_produto = ?, quatidade_produto = ?, preco_produto = ?, fornecedor_produto = ? WHERE cod_produto = ?");
+            stmt = con.prepareStatement("UPDATE Produto SET quantidade_produto = ?, preco_produto = ?, fornecedor_produto = ?, nome_produto = ? WHERE cod_produto = ?");
                         
             
             stmt.setInt(1, p.getQuantidade_produto());
             stmt.setDouble(2, p.getPreco_produto());
             stmt.setString(3, p.getFornecedor_produto());
-            stmt.setInt(4, p.getCod_produto());
-            stmt.setString(5, p.getNome_produto());
+            stmt.setString(4, p.getNome_produto());
+            stmt.setLong(5, p.getCod_produto());
             
             stmt.executeUpdate();
             
@@ -124,7 +125,7 @@ public class ProdutoDao {
         
         try {
             stmt = con.prepareStatement("DELETE FROM Produto WHERE cod_produto=?");
-            stmt.setInt(1, p.getCod_produto());
+            stmt.setLong(1, p.getCod_produto());
            
             stmt.executeLargeUpdate();
             
@@ -140,38 +141,5 @@ public class ProdutoDao {
             
     }
     
- public List<Produto> join(){
-        
-        Connection con = ConnectionFactory.getConnection();
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        
-        List<Produto> produtos = new ArrayList<>();
-        
-        
-        
-            try {
-                stmt = con.prepareStatement("SELECT nome_produto"
-                        + " FROM Produto INNER JOIN Venda_produto ON "
-                        + "Produto.cod_produto = Venda_produto.cod_produtoFk");
-                rs = stmt.executeQuery();
-                
-                while (rs.next()) {                    
-                    Produto produto = new Produto();
-                    
-                    produto.setNome_produto(rs.getString("nome_produto"));
-                    
-                    //produtos.add(produto);
-                    
-                }
-                
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null,"Erro" + ex);
-            }finally{
-                ConnectionFactory.closeConnection(con, stmt, rs);
-            }
-        
-            return produtos;
-    }
-       
+ 
 }

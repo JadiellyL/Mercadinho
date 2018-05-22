@@ -198,7 +198,7 @@ public class Mostrar_produto extends javax.swing.JFrame {
         
         for(int i = 0; i < produtos.size(); i++){
            
-            String pd = Integer.toString(produtos.get(i).getCod_produto());
+            String pd = Long.toString(produtos.get(i).getCod_produto());
                         
             if(codigoDigitado.equals(pd)){
                 achou = true;

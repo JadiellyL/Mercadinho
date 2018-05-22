@@ -28,8 +28,8 @@ public class Venda_produtoDao{
             stmt = con.prepareStatement("INSERT INTO Venda_produto(cod_produtoFk, cod_vendaFk,quantidade_produtos, "
                     + "valor_unitarioproduto, total_venda) VALUES (?, ?, ?, ?, ?)");
             
-            stmt.setInt(1,v.getCod_produtoFk());
-            stmt.setInt(2,v.getCod_vendaFk());
+            stmt.setLong(1,v.getCod_produtoFk());
+            stmt.setLong(2,v.getCod_vendaFk());
             stmt.setInt(3, v.getQuantidade_produtos());
             stmt.setDouble(4, v.getValor_unitarioproduto());
             stmt.setDouble(5, v.getTotal_venda());
@@ -67,7 +67,7 @@ public class Venda_produtoDao{
                 while (rs.next()) {                    
                     Venda_produto vp = new Venda_produto();
                    
-                    vp.setCod_produtoFk(rs.getInt("cod_produtoFk"));
+                    vp.setCod_produtoFk(rs.getLong("cod_produtoFk"));
                     vp.setCod_vendaFk(rs.getInt("cod_vendaFk"));
                     vp.setQuantidade_produtos(rs.getInt("quantidade_produtos"));
                     vp.setValor_unitarioproduto(rs.getDouble("valor_unitarioproduto"));

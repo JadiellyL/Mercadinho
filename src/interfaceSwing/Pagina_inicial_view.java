@@ -9,15 +9,21 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import model.Backup_bd;
 import model.Venda;
+import org.jdesktop.el.impl.parser.ParseException;
 
 /**
  *
@@ -274,9 +280,18 @@ public class Pagina_inicial_view extends javax.swing.JFrame {
     }//GEN-LAST:event_verPrecoMouseClicked
 
     private void sairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sairMouseClicked
-        Pagina_inicial_view pi = new Pagina_inicial_view();
-        pi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        //Pagina_inicial_view pi = new Pagina_inicial_view();
+        //pi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Backup_bd bb = new Backup_bd();
+        try {
+            bb.executaBackup();
+        } catch (ParseException ex) {
+            Logger.getLogger(Pagina_inicial_view.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(Pagina_inicial_view.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Pagina_inicial_view.class.getName()).log(Level.SEVERE, null, ex);
+        }
                 
     }//GEN-LAST:event_sairMouseClicked
 

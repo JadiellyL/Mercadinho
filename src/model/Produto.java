@@ -3,13 +3,13 @@ package model;
 
 
 public class Produto {
-    private int cod_produto;
+    private long cod_produto;
     private String nome_produto;
     private int quantidade_produto;
     private double preco_produto;
     private String fornecedor_produto;
 
-    public Produto(int cod_produto, String nome_produto, int quantidade_produto, double preco_produto, String fornecedor_produto) {
+    public Produto(long cod_produto, String nome_produto, int quantidade_produto, double preco_produto, String fornecedor_produto) {
         this.cod_produto = cod_produto;
         this.nome_produto = nome_produto;
         this.quantidade_produto = quantidade_produto;
@@ -19,12 +19,16 @@ public class Produto {
 
     public Produto() {
     }
-    
 
-    public int getCod_produto() {
+    public long getCod_produto() {
         return cod_produto;
     }
-       
+
+    public void setCod_produto(long cod_produto) {
+        this.cod_produto = cod_produto;
+    }
+    
+
     public String getNome_produto() {
         return nome_produto;
     }
@@ -45,11 +49,7 @@ public class Produto {
         return preco_produto;
     }
 
-    public void setCod_produto(int cod_produto) {
-        this.cod_produto = cod_produto;
-    }
-
-    
+        
     
     public void setPreco_produto(double preco_produto) {
         this.preco_produto = preco_produto;

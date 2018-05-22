@@ -592,15 +592,15 @@ public class Vendas_view extends javax.swing.JFrame {
         dat = new java.util.Date();
         SimpleDateFormat formato;
         formato = new SimpleDateFormat("dd-MM-YYYY");
-        data_da_venda.setText(formato.format(dat));
-        java.sql.Date data = null;
+        //data_da_venda.setText(formato.format(dat));
+        //java.sql.Date data = null;
         try {
-            data = new java.sql.Date(formato.parse(data_da_venda.getText()).getTime());
+            dat = new java.sql.Date(formato.parse(data_da_venda.getText()).getTime());
         } catch (ParseException ex) {
             Logger.getLogger(Vendas_view.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        venda.setData_venda(data);
+        venda.setData_venda((Date) dat);
         vendaDao.create(venda);
         mostrarCodigoDaVenda();
         troco_venda1.setText("0.0");
@@ -662,9 +662,10 @@ public class Vendas_view extends javax.swing.JFrame {
         calcularTroco();
         cod_ultima_venda.setText("00");
         total_a_pagar_venda.setText("0.0");
-      
+        
         valor_total_item_venda.setText("0.0");
         valor_recebido_venda.setText("0.0");
+        nome_do_produto_venda.setText("Produto");
         
         limparTabela();
         
@@ -672,7 +673,6 @@ public class Vendas_view extends javax.swing.JFrame {
     
     public void limparTabela(){
    
-           
            while (lista_de_compras.getModel().getRowCount() > 0) {  
            ((DefaultTableModel) lista_de_compras.getModel()).removeRow(0);  
        } 
@@ -761,8 +761,7 @@ public class Vendas_view extends javax.swing.JFrame {
         
     }
     
-    
-    
+  
     public void mostrarCodigoDaVenda(){
         
         List<Venda> vendaDao = new VendaDao().read();
@@ -780,7 +779,7 @@ public class Vendas_view extends javax.swing.JFrame {
     
     List<Produto> listaProdutos = new ProdutoDao().read();
          
-    int codigoDigitado = Integer.parseInt(codigo_produto_venda.getText());
+    long codigoDigitado = Long.parseLong(codigo_produto_venda.getText());
     
     for(int i = 0; i < listaProdutos.size(); i++){
          
@@ -795,7 +794,7 @@ public class Vendas_view extends javax.swing.JFrame {
     List<Produto> listaProdutos = new ProdutoDao().read();
     ProdutoDao produtoDao = new ProdutoDao();
      
-    int codigoDigitado = Integer.parseInt(codigo_produto_venda.getText());
+    long codigoDigitado = Long.parseLong(codigo_produto_venda.getText());
     int quantidadeDigitada = Integer.parseInt(quantidade_produto_venda.getText());
     int quantidadeAnteriorNoBd;
     boolean quantidadeIndisponivelNoBd = false;
@@ -842,7 +841,7 @@ public class Vendas_view extends javax.swing.JFrame {
         
         Venda_produtoDao vendaProdutoDao = new Venda_produtoDao();
                 
-        vendaProduto.setCod_produtoFk(Integer.parseInt(codigo_produto_venda.getText()));
+        vendaProduto.setCod_produtoFk(Long.parseLong(codigo_produto_venda.getText()));
         vendaProduto.setCod_vendaFk(Integer.parseInt(cod_ultima_venda.getText()));
         vendaProduto.setQuantidade_produtos(Integer.parseInt(quantidade_produto_venda.getText()));
       
@@ -864,7 +863,7 @@ public class Vendas_view extends javax.swing.JFrame {
         
         for(int i = 0; i < listaProdutos.size(); i++){
             String codigoVendaNoBd = Integer.toString(listaProdutos.get(i).getCod_vendaFk());
-            String codigoProdutoNoBd = Integer.toString(listaProdutos.get(i).getCod_produtoFk());
+            String codigoProdutoNoBd = Long.toString(listaProdutos.get(i).getCod_produtoFk());
             if((codigoVendaAtual.equals(codigoVendaNoBd)) && (codigoProdutoDigitado.equals(codigoProdutoNoBd))){
          
                 DefaultTableModel val = (DefaultTableModel) lista_de_compras.getModel();
@@ -884,7 +883,7 @@ public class Vendas_view extends javax.swing.JFrame {
     public void calcularTroco(){
     double valorRecebido = Double.parseDouble(valor_recebido_venda.getText());
     double valorTotalAPagar = Double.parseDouble(total_a_pagar_venda.getText());
-    double troco ;
+    double troco;
         
     troco = (valorRecebido - valorTotalAPagar);
         
@@ -898,7 +897,7 @@ public class Vendas_view extends javax.swing.JFrame {
         String codigoDigitado = codigo_produto_venda.getText();
         
         for(int i = 0; i < listaProdutos.size(); i++){
-            String codigoProdutoBd = Integer.toString(listaProdutos.get(i).getCod_produto());
+            String codigoProdutoBd = Long.toString(listaProdutos.get(i).getCod_produto());
             if(codigoDigitado.equals(codigoProdutoBd)){
                 String nome_produto = listaProdutos.get(i).getNome_produto();
                 nome_do_produto_venda.setText(nome_produto);
