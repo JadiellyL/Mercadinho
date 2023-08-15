@@ -49,8 +49,8 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
         jButton_pesquisar_cliente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_clientes = new javax.swing.JTable();
-        jTextField_cpf_cliente_listar = new javax.swing.JFormattedTextField();
         jButton_limpar = new javax.swing.JButton();
+        jTextField_cpf_cliente_listar = new javax.swing.JTextField();
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 25));
 
@@ -89,7 +89,6 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
         jPanel_mostrar.setRequestFocusEnabled(false);
 
         jButton_listar_clientes.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jButton_listar_clientes.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/listar_clientes.png")); // NOI18N
         jButton_listar_clientes.setText("Listar");
         jButton_listar_clientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +97,6 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
         });
 
         jButton_pesquisar_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jButton_pesquisar_cliente.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/pesquisarCli.png")); // NOI18N
         jButton_pesquisar_cliente.setText("Pesquisar");
         jButton_pesquisar_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,14 +126,7 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
         jTable_clientes.setRequestFocusEnabled(false);
         jScrollPane1.setViewportView(jTable_clientes);
 
-        try {
-            jTextField_cpf_cliente_listar.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         jButton_limpar.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jButton_limpar.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/limpar_lista.png")); // NOI18N
         jButton_limpar.setText("Limpar");
         jButton_limpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,9 +139,9 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
         jPanel_mostrarLayout.setHorizontalGroup(
             jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_mostrarLayout.createSequentialGroup()
-                .addContainerGap(100, Short.MAX_VALUE)
-                .addComponent(jTextField_cpf_cliente_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(82, Short.MAX_VALUE)
+                .addComponent(jTextField_cpf_cliente_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addComponent(jButton_pesquisar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton_listar_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,15 +156,19 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
         jPanel_mostrarLayout.setVerticalGroup(
             jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_mostrarLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_pesquisar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_listar_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField_cpf_cliente_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_mostrarLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanel_mostrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton_pesquisar_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton_listar_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_mostrarLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jTextField_cpf_cliente_listar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -381,6 +376,6 @@ public class Mostrar_Cliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_mostrar;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable_clientes;
-    private javax.swing.JFormattedTextField jTextField_cpf_cliente_listar;
+    private javax.swing.JTextField jTextField_cpf_cliente_listar;
     // End of variables declaration//GEN-END:variables
 }

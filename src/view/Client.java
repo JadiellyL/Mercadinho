@@ -222,7 +222,7 @@ class botaoCadastrar implements ActionListener{
               c.setSexo_cliente("Masculino");
             }
              c.setRua_cliente(cadastro_rua_cliente.getText());
-             c.setNumeracao_casa_cliente(Integer.parseInt(cadastro_numero_cliente.getText()));
+             c.setNumeracao_casa_cliente(cadastro_numero_cliente.getText());
              c.setBairro_cliente(cadastro_bairro_cliente.getText());
              c.setCidade_cliente(cadastro_cidade_cliente.getText());
              c.setCelular_cliente(cadastro_celular_cliente.getText());
@@ -259,7 +259,7 @@ class botaoEditar implements ActionListener{
             c.setNome_cliente(cadastro_nome_cliente.getText());
             c.setSexo_cliente(Cadastro_sexo_cliente.getText());
             c.setRua_cliente(cadastro_rua_cliente.getText());
-            c.setNumeracao_casa_cliente(Integer.parseInt(cadastro_numero_cliente.getText()));
+            c.setNumeracao_casa_cliente(cadastro_numero_cliente.getText());
             c.setBairro_cliente(cadastro_bairro_cliente.getText());
             c.setCidade_cliente(cadastro_cidade_cliente.getText());
             c.setCelular_cliente(cadastro_celular_cliente.getText());
@@ -316,7 +316,7 @@ class botaoBuscar implements ActionListener{
                      Masculino.isSelected();
                 }
                 cadastro_rua_cliente.setText(clientes.get(i).getRua_cliente());
-                cadastro_numero_cliente.setText(Integer.toString(clientes.get(i).getNumeracao_casa_cliente()));
+                cadastro_numero_cliente.setText(clientes.get(i).getNumeracao_casa_cliente());
                 cadastro_bairro_cliente.setText(clientes.get(i).getBairro_cliente());
                 cadastro_cidade_cliente.setText(clientes.get(i).getCidade_cliente());
                 cadastro_celular_cliente.setText(clientes.get(i).getCelular_cliente());

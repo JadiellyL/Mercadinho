@@ -31,7 +31,7 @@ public class ClienteDao {
             stmt.setString(2,c.getNome_cliente());
             stmt.setString(3,c.getSexo_cliente());
             stmt.setString(4,c.getRua_cliente());
-            stmt.setInt(5,c.getNumeracao_casa_cliente());
+            stmt.setString(5,c.getNumeracao_casa_cliente());
             stmt.setString(6,c.getBairro_cliente());
             stmt.setString(7,c.getCidade_cliente());
             stmt.setString(8, c.getCelular_cliente());
@@ -72,7 +72,7 @@ public class ClienteDao {
                     c.setNome_cliente(rs.getString("nome_cliente"));
                     c.setSexo_cliente(rs.getString("sexo_cliente"));
                     c.setRua_cliente(rs.getString("rua_cliente"));
-                    c.setNumeracao_casa_cliente(rs.getInt("numeracao_casa_cliente"));
+                    c.setNumeracao_casa_cliente(rs.getString("numeracao_casa_cliente"));
                     c.setBairro_cliente(rs.getString("bairro_cliente"));
                     c.setCidade_cliente(rs.getString("cidade_cliente"));
                     c.setCelular_cliente(rs.getString("celular_cliente"));
@@ -106,7 +106,7 @@ public class ClienteDao {
             stmt.setString(1, c.getNome_cliente());
             stmt.setString(2, c.getSexo_cliente());
             stmt.setString(3, c.getRua_cliente());
-            stmt.setInt(4, c.getNumeracao_casa_cliente());
+            stmt.setString(4, c.getNumeracao_casa_cliente());
             stmt.setString(5, c.getBairro_cliente());
             stmt.setString(6, c.getCidade_cliente());
             stmt.setString(7, c.getCelular_cliente());

@@ -10,7 +10,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import model.Produto;
 import model.dao.ProdutoDao;
-import org.jdesktop.el.impl.lang.ELArithmetic;
 
 /**
  *

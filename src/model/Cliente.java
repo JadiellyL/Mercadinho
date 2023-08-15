@@ -8,12 +8,12 @@ public class Cliente {
     private String nome_cliente;
     private String sexo_cliente;
     private String rua_cliente;
-    private int numeracao_casa_cliente;
+    private String numeracao_casa_cliente;
     private String bairro_cliente;
     private String cidade_cliente;
     private String celular_cliente;
 
-    public Cliente(String cpf_cliente, String nome_cliente, String sexo_cliente, String rua_cliente, int numeracao_casa_cliente, String bairro_cliente, String cidade_cliente, String celular_cliente) {
+    public Cliente(String cpf_cliente, String nome_cliente, String sexo_cliente, String rua_cliente, String numeracao_casa_cliente, String bairro_cliente, String cidade_cliente, String celular_cliente) {
         this.cpf_cliente = cpf_cliente;
         this.nome_cliente = nome_cliente;
         this.sexo_cliente = sexo_cliente;
@@ -59,11 +59,11 @@ public class Cliente {
         this.rua_cliente = rua_cliente;
     }
 
-    public int getNumeracao_casa_cliente() {
+    public String getNumeracao_casa_cliente() {
         return numeracao_casa_cliente;
     }
 
-    public void setNumeracao_casa_cliente(int numeracao_casa_cliente) {
+    public void setNumeracao_casa_cliente(String numeracao_casa_cliente) {
         this.numeracao_casa_cliente = numeracao_casa_cliente;
     }
 

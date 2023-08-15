@@ -23,17 +23,11 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/opcoes.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_editar_vendedor">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/editar_vendedor.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Editar Cadastro de Vendedor"/>
               </Properties>
               <Events>
@@ -42,9 +36,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_excluir_vendedor">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/excluirVendedor.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Excluir Cadastro de Vendedor"/>
               </Properties>
               <Events>
@@ -53,9 +44,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem_listar_vendedor">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/listar_clientes.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Listar Vendedor"/>
               </Properties>
               <Events>
@@ -93,7 +81,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel1" pref="861" max="32767" attributes="0"/>
+                  <Component id="jPanel1" pref="873" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -178,20 +166,22 @@
                   <EmptySpace min="-2" pref="353" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel_codigo_vendedor" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="codigo_vendedor_cadastro" min="-2" pref="182" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          <Component id="jButton1_pesquisar_vendedor" min="-2" pref="145" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="senha_cadastro" min="-2" pref="182" max="-2" attributes="0"/>
-                      <Component id="nome_vendedor_cadastro" min="-2" pref="182" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="sexo_feminino_cadastro_vendedor" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="seco_masculino_cadastro_vendedor" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="codigo_vendedor_cadastro" max="32767" attributes="0"/>
+                              <Component id="nome_vendedor_cadastro" pref="182" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Component id="jButton1_pesquisar_vendedor" min="-2" pref="145" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="153" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -200,17 +190,12 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel_codigo_vendedor" min="-2" pref="28" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="codigo_vendedor_cadastro" min="-2" pref="35" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton1_pesquisar_vendedor" min="-2" pref="38" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jButton1_pesquisar_vendedor" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="codigo_vendedor_cadastro" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="nome_vendedor_cadastro" min="-2" pref="35" max="-2" attributes="0"/>
@@ -265,9 +250,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="nome_vendedor_cadastro">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -275,9 +257,6 @@
         </Component>
         <Component class="javax.swing.JPasswordField" name="senha_cadastro">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -316,29 +295,18 @@
             <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="codigo_vendedor_cadastro">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="jButton1_pesquisar_vendedor">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Cantarell" size="18" style="1"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/pesquisarCli.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Pesquisar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1_pesquisar_vendedorActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="codigo_vendedor_cadastro">
         </Component>
       </SubComponents>
     </Container>
@@ -355,9 +323,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="nome_vendedor_cadastro2">
       <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>

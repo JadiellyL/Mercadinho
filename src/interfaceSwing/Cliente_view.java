@@ -6,7 +6,6 @@
 package interfaceSwing;
 
 import java.util.List;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import model.Cliente;
 import model.dao.ClienteDao;
@@ -45,7 +44,6 @@ public class Cliente_view extends javax.swing.JFrame {
         jLabel_nome_cliente = new javax.swing.JLabel();
         cadastro_nome_cliente = new javax.swing.JTextField();
         jLabel_celular_cliente = new javax.swing.JLabel();
-        cadastrar_cpf_cliente = new javax.swing.JFormattedTextField();
         jLabel_cpf_cliente = new javax.swing.JLabel();
         cadastro_celular_cliente = new javax.swing.JFormattedTextField();
         sexo_feminino = new javax.swing.JRadioButton();
@@ -59,6 +57,7 @@ public class Cliente_view extends javax.swing.JFrame {
         cadastro_bairro_cliente = new javax.swing.JTextField();
         jLabel_cidade_cliente = new javax.swing.JLabel();
         cadastro_cidade_cliente = new javax.swing.JTextField();
+        cadastrar_cpf_cliente = new javax.swing.JTextField();
         jButton_cadastrar_cliente = new javax.swing.JButton();
         jLabel_dados_pessoais = new javax.swing.JLabel();
         jLabel_endereco = new javax.swing.JLabel();
@@ -94,13 +93,6 @@ public class Cliente_view extends javax.swing.JFrame {
         jLabel_celular_cliente.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_celular_cliente.setText("Celular:");
 
-        cadastrar_cpf_cliente.setBorder(null);
-        try {
-            cadastrar_cpf_cliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         jLabel_cpf_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
         jLabel_cpf_cliente.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_cpf_cliente.setText("Cpf:");
@@ -121,7 +113,6 @@ public class Cliente_view extends javax.swing.JFrame {
         sexo_masculino.setText("Masculino");
 
         jButton_pesquisar_cpf_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
-        jButton_pesquisar_cpf_cliente.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/pesquisarCli.png")); // NOI18N
         jButton_pesquisar_cpf_cliente.setText("Pesquisar");
         jButton_pesquisar_cpf_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +144,12 @@ public class Cliente_view extends javax.swing.JFrame {
 
         cadastro_cidade_cliente.setBorder(null);
 
+        cadastrar_cpf_cliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrar_cpf_clienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -161,18 +158,19 @@ public class Cliente_view extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel_nome_cliente)
-                    .addComponent(cadastro_nome_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_cpf_cliente)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(cadastrar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jButton_pesquisar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel_sexo_cliente)
                     .addComponent(sexo_feminino)
                     .addComponent(sexo_masculino)
                     .addComponent(jLabel_celular_cliente)
-                    .addComponent(cadastro_celular_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cadastro_celular_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cadastrar_cpf_cliente)
+                            .addComponent(cadastro_nome_cliente, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addComponent(jButton_pesquisar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel_cidade_cliente)
                     .addComponent(jLabel_rua_cliente)
@@ -200,10 +198,11 @@ public class Cliente_view extends javax.swing.JFrame {
                     .addComponent(jLabel_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel_numero_cliente))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cadastrar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_pesquisar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cadastro_numero_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton_pesquisar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadastro_numero_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cadastrar_cpf_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -226,7 +225,7 @@ public class Cliente_view extends javax.swing.JFrame {
                         .addComponent(jLabel_cidade_cliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cadastro_cidade_cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(15, Short.MAX_VALUE))))
+                        .addContainerGap(12, Short.MAX_VALUE))))
         );
 
         jButton_cadastrar_cliente.setFont(new java.awt.Font("Cantarell", 1, 18)); // NOI18N
@@ -269,10 +268,8 @@ public class Cliente_view extends javax.swing.JFrame {
 
         jMenuBar1.setPreferredSize(new java.awt.Dimension(60, 40));
 
-        jMenu1.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/opcoes.png")); // NOI18N
         jMenu1.setText("Opções");
 
-        jMenuItem1_editar_cliente.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/editar_cliente.png")); // NOI18N
         jMenuItem1_editar_cliente.setText("Editar Cadastro de Cliente");
         jMenuItem1_editar_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,7 +278,6 @@ public class Cliente_view extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1_editar_cliente);
 
-        jMenuItem2_excluir_cliente.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/excluir_cliente.png")); // NOI18N
         jMenuItem2_excluir_cliente.setText("Excluir Cadastro de Cliente");
         jMenuItem2_excluir_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,7 +286,6 @@ public class Cliente_view extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2_excluir_cliente);
 
-        jMenuItem3_listar_cliente.setIcon(new javax.swing.ImageIcon("/home/jade/NetBeansProjects/mercadinho_tiuzinho/src/img/listar_clientes.png")); // NOI18N
         jMenuItem3_listar_cliente.setText("Listar Clientes");
         jMenuItem3_listar_cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,7 +310,7 @@ public class Cliente_view extends javax.swing.JFrame {
                 .addGap(265, 265, 265))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 856, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 892, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(344, 344, 344)
@@ -354,7 +349,6 @@ public class Cliente_view extends javax.swing.JFrame {
        
       Cliente c = new Cliente();
        
-       
        c.setCpf_cliente(cadastrar_cpf_cliente.getText());
        c.setNome_cliente(cadastro_nome_cliente.getText());
        if(sexo_feminino.isSelected()){
@@ -364,7 +358,7 @@ public class Cliente_view extends javax.swing.JFrame {
            c.setSexo_cliente(sexo_masculino.getText());
        }
        c.setRua_cliente(cadastro_rua_cliente.getText());
-       c.setNumeracao_casa_cliente(Integer.parseInt(cadastro_numero_cliente.getText()));
+       c.setNumeracao_casa_cliente(cadastro_numero_cliente.getText());
        c.setBairro_cliente(cadastro_bairro_cliente.getText());
        c.setCidade_cliente(cadastro_cidade_cliente.getText());
        c.setCelular_cliente(cadastro_celular_cliente.getText());
@@ -422,7 +416,7 @@ public class Cliente_view extends javax.swing.JFrame {
                 cadastro_nome_cliente.setText(clientes.get(i).getNome_cliente());
                 //editar_sexo_cliente.setText(c.getSexo_cliente());
                 cadastro_rua_cliente.setText(clientes.get(i).getRua_cliente());
-                cadastro_numero_cliente.setText(Integer.toString(clientes.get(i).getNumeracao_casa_cliente()));
+                cadastro_numero_cliente.setText(clientes.get(i).getNumeracao_casa_cliente());
                 cadastro_bairro_cliente.setText(clientes.get(i).getBairro_cliente());
                 cadastro_cidade_cliente.setText(clientes.get(i).getCidade_cliente());
                 cadastro_celular_cliente.setText(clientes.get(i).getCelular_cliente());
@@ -447,7 +441,7 @@ public class Cliente_view extends javax.swing.JFrame {
            c.setSexo_cliente(sexo_masculino.getText());
        }
         c.setRua_cliente(cadastro_rua_cliente.getText());
-        c.setNumeracao_casa_cliente(Integer.parseInt(cadastro_numero_cliente.getText()));
+        c.setNumeracao_casa_cliente(cadastro_numero_cliente.getText());
         c.setBairro_cliente(cadastro_bairro_cliente.getText());
         c.setCidade_cliente(cadastro_cidade_cliente.getText());
         c.setCelular_cliente(cadastro_celular_cliente.getText());
@@ -493,6 +487,10 @@ public class Cliente_view extends javax.swing.JFrame {
        Mostrar_Cliente mc = new Mostrar_Cliente();
        mc.setVisible(true);
     }//GEN-LAST:event_jMenuItem3_listar_clienteActionPerformed
+
+    private void cadastrar_cpf_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar_cpf_clienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cadastrar_cpf_clienteActionPerformed
 
     public void limparCampos(){
         cadastrar_cpf_cliente.setText("");
@@ -540,7 +538,7 @@ public class Cliente_view extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JFormattedTextField cadastrar_cpf_cliente;
+    private javax.swing.JTextField cadastrar_cpf_cliente;
     private javax.swing.JTextField cadastro_bairro_cliente;
     private javax.swing.JFormattedTextField cadastro_celular_cliente;
     private javax.swing.JTextField cadastro_cidade_cliente;
